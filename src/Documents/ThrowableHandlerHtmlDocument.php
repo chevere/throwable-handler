@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler\Documents;
 
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerHtmlFormat;
-use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerFormatInterface;
+use Chevere\Trace\Interfaces\TraceFormatInterface;
 
 final class ThrowableHandlerHtmlDocument extends ThrowableHandlerDocument
 {
@@ -28,7 +28,7 @@ final class ThrowableHandlerHtmlDocument extends ThrowableHandlerDocument
 
     public const DEBUG_BODY_HTML = '<main class="main--stack"><div>%content%</div></main>';
 
-    public function getFormat(): ThrowableHandlerFormatInterface
+    public function getFormat(): TraceFormatInterface
     {
         return new ThrowableHandlerHtmlFormat();
     }

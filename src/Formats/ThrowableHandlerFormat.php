@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler\Formats;
 
-use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerFormatInterface;
+use Chevere\Trace\Interfaces\TraceDocumentInterface;
 use Chevere\Trace\Interfaces\TraceFormatInterface;
 use Chevere\VarDump\Interfaces\VarDumpFormatInterface;
 
-abstract class ThrowableHandlerFormat implements ThrowableHandlerFormatInterface
+abstract class ThrowableHandlerFormat implements TraceFormatInterface
 {
     protected VarDumpFormatInterface $varDumpFormatter;
 
@@ -35,11 +35,11 @@ abstract class ThrowableHandlerFormat implements ThrowableHandlerFormatInterface
 
     public function getTraceEntryTemplate(): string
     {
-        return '#' . TraceFormatInterface::TAG_ENTRY_POS .
-            ' ' . TraceFormatInterface::TAG_ENTRY_FILE_LINE . "\n" .
-            TraceFormatInterface::TAG_ENTRY_CLASS .
-            TraceFormatInterface::TAG_ENTRY_TYPE .
-            TraceFormatInterface::TAG_ENTRY_FUNCTION;
+        return '#' . TraceDocumentInterface::TAG_ENTRY_POS .
+            ' ' . TraceDocumentInterface::TAG_ENTRY_FILE_LINE . "\n" .
+            TraceDocumentInterface::TAG_ENTRY_CLASS .
+            TraceDocumentInterface::TAG_ENTRY_TYPE .
+            TraceDocumentInterface::TAG_ENTRY_FUNCTION;
     }
 
     public function getHr(): string

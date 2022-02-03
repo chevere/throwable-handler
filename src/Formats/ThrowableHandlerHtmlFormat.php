@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler\Formats;
 
-use Chevere\Trace\Interfaces\TraceFormatInterface;
+use Chevere\Trace\Interfaces\TraceDocumentInterface;
 use Chevere\VarDump\Formats\VarDumpHtmlFormat;
 use Chevere\VarDump\Interfaces\VarDumpFormatInterface;
 
@@ -27,12 +27,12 @@ final class ThrowableHandlerHtmlFormat extends ThrowableHandlerFormat
     public function getTraceEntryTemplate(): string
     {
         return '<div class="pre pre--stack-entry ' .
-            TraceFormatInterface::TAG_ENTRY_CSS_EVEN_CLASS . '">#' .
-            TraceFormatInterface::TAG_ENTRY_POS . ' ' .
-            TraceFormatInterface::TAG_ENTRY_FILE_LINE . "\n" .
-            TraceFormatInterface::TAG_ENTRY_CLASS .
-            TraceFormatInterface::TAG_ENTRY_TYPE .
-            TraceFormatInterface::TAG_ENTRY_FUNCTION .
+            TraceDocumentInterface::TAG_ENTRY_CSS_EVEN_CLASS . '">#' .
+            TraceDocumentInterface::TAG_ENTRY_POS . ' ' .
+            TraceDocumentInterface::TAG_ENTRY_FILE_LINE . "\n" .
+            TraceDocumentInterface::TAG_ENTRY_CLASS .
+            TraceDocumentInterface::TAG_ENTRY_TYPE .
+            TraceDocumentInterface::TAG_ENTRY_FUNCTION .
             '</div>';
     }
 

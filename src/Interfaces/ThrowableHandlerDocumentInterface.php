@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler\Interfaces;
 
+use Chevere\Trace\Interfaces\TraceFormatInterface;
 use Stringable;
 
 /**
@@ -145,5 +146,5 @@ interface ThrowableHandlerDocumentInterface extends Stringable
     /**
      * Returns the document formatter.
      */
-    public function getFormat(): ThrowableHandlerFormatInterface;
+    public function getFormat(): TraceFormatInterface;
 }

@@ -1,6 +1,6 @@
 {
     "name": "chevere/throwable-handler",
-    "description": "A chevere throwable-handler abstraction.",
+    "description": "A chevere throwable-handler component.",
     "homepage": "https://chevere.org",
     "type": "library",
     "license": "Apache-2.0",
@@ -13,7 +13,8 @@
     ],
     "require": {
         "chevere/chevere": "^0.1.x-dev",
-        "chevere/var-dump": "^0.1.x-dev"
+        "chevere/var-dump": "^0.1.x-dev",
+        "chevere/trace": "^0.1.x-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

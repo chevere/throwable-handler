@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler\Documents;
 
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerPlainFormat;
-use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerFormatInterface;
+use Chevere\Trace\Interfaces\TraceFormatInterface;
 
 final class ThrowableHandlerPlainDocument extends ThrowableHandlerDocument
 {
-    public function getFormat(): ThrowableHandlerFormatInterface
+    public function getFormat(): TraceFormatInterface
     {
         return new ThrowableHandlerPlainFormat();
     }

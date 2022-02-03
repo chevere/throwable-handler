@@ -8,7 +8,7 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=chevere_throwable-handler&metric=alert_status)](https://sonarcloud.io/dashboard?id=chevere_throwable-handler) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_throwable-handler&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=chevere_throwable-handler) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_throwable-handler&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=chevere_throwable-handler) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_throwable-handler&metric=security_rating)](https://sonarcloud.io/dashboard?id=chevere_throwable-handler) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=chevere_throwable-handler&metric=coverage)](https://sonarcloud.io/dashboard?id=chevere_throwable-handler) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=chevere_throwable-handler&metric=sqale_index)](https://sonarcloud.io/dashboard?id=chevere_throwable-handler) [![CodeFactor](https://www.codefactor.io/repository/github/chevere/throwable-handler/badge)](https://www.codefactor.io/repository/github/chevere/throwable-handler) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cc09a56d15814ffd9066dcd19a5654c7)](https://www.codacy.com/gh/chevere/throwable-handler/dashboard)
 
-The chevere throwable-handler abstraction.
+The chevere throwable-handler component.
 
 ## Documentation
 

@@ -14,18 +14,18 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler\Documents;
 
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerDocumentInterface;
-use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerFormatInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableReadInterface;
 use Chevere\ThrowableHandler\ThrowableRead;
-use Chevere\Trace\TraceFormat;
+use Chevere\Trace\Interfaces\TraceFormatInterface;
+use Chevere\Trace\TraceDocument;
 use DateTimeInterface;
 
 abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInterface
 {
     protected ThrowableHandlerInterface $handler;
 
-    protected ThrowableHandlerFormatInterface $format;
+    protected TraceFormatInterface $format;
 
     protected array $sections = self::SECTIONS;
 
@@ -42,7 +42,7 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
         $this->template = $this->getTemplate();
     }
 
-    abstract public function getFormat(): ThrowableHandlerFormatInterface;
+    abstract public function getFormat(): TraceFormatInterface;
 
     final public function withVerbosity(int $verbosity): static
     {
@@ -184,7 +184,7 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
 
     protected function getStackTrace(): string
     {
-        return (new TraceFormat(
+        return (new TraceDocument(
             $this->handler->throwableRead()->trace(),
             $this->format
         ))->__toString();

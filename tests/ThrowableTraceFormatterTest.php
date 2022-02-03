@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Chevere\Tests\ThrowableHandler;
 
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerPlainFormat;
-use Chevere\Trace\TraceFormat;
+use Chevere\Trace\TraceDocument;
 use Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -30,9 +30,9 @@ final class ThrowableTraceFormatterTest extends TestCase
     public function testRealStackTrace(): void
     {
         $e = new Exception('Message', 100);
-        $trace = new TraceFormat($e->getTrace(), new ThrowableHandlerPlainFormat());
-        $this->assertIsArray($trace->toArray());
-        $this->assertIsString($trace->__toString());
+        $document = new TraceDocument($e->getTrace(), new ThrowableHandlerPlainFormat());
+        $this->assertIsArray($document->toArray());
+        $this->assertIsString($document->__toString());
     }
 
     public function testNullStackTrace(): void
@@ -47,19 +47,19 @@ final class ThrowableTraceFormatterTest extends TestCase
                 'args' => [false, null],
             ],
         ];
-        $traceFormatter = new TraceFormat(
+        $document = new TraceDocument(
             $trace,
             new ThrowableHandlerPlainFormat()
         );
         $this->assertSame([
             0 => "#0 \n(boolean false, NULL)",
-        ], $traceFormatter->toArray());
+        ], $document->toArray());
         $this->assertSame(
             $this->hrLine .
             "\n#0 " .
             "\n(boolean false, NULL)" .
             "\n" . $this->hrLine,
-            $traceFormatter->__toString()
+            $document->__toString()
         );
     }
 
@@ -88,7 +88,7 @@ final class ThrowableTraceFormatterTest extends TestCase
                 'args' => [],
             ],
         ];
-        $traceFormatter = new TraceFormat(
+        $document = new TraceDocument(
             $trace,
             new ThrowableHandlerPlainFormat()
         );
@@ -98,12 +98,12 @@ final class ThrowableTraceFormatterTest extends TestCase
             $expectEntries[] = $expect;
             $this->assertSame(
                 $expect,
-                $traceFormatter->toArray()[$pos]
+                $document->toArray()[$pos]
             );
         }
         $expectString = $this->hrLine . "\n" .
             implode("\n" . $this->hrLine . "\n", $expectEntries) . "\n" .
             $this->hrLine;
-        $this->assertSame($expectString, $traceFormatter->__toString());
+        $this->assertSame($expectString, $document->__toString());
     }
 }
