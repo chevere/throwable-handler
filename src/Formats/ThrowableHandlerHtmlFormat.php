@@ -24,7 +24,7 @@ final class ThrowableHandlerHtmlFormat extends ThrowableHandlerFormat
         return new VarDumpHtmlFormat();
     }
 
-    public function getTraceEntryTemplate(): string
+    public function getItemTemplate(): string
     {
         return '<div class="pre pre--stack-entry ' .
             TraceDocumentInterface::TAG_ENTRY_CSS_EVEN_CLASS . '">#' .

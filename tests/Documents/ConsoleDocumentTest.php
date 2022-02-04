@@ -47,7 +47,7 @@ final class ConsoleDocumentTest extends TestCase
         );
         $this->assertInstanceOf(
             ThrowableHandlerConsoleFormat::class,
-            $document->getFormat()
+            $document->getDocumentFormat()
         );
         $sectionTitle = $document->getSectionTitle();
         $plainDocument = new ThrowableHandlerPlainDocument($handler);

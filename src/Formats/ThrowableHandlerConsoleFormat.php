@@ -25,15 +25,17 @@ final class ThrowableHandlerConsoleFormat extends ThrowableHandlerFormat
         return new VarDumpConsoleFormat();
     }
 
-    public function getTraceEntryTemplate(): string
+    public function getItemTemplate(): string
     {
         return $this->wrapSectionTitle(
             '#' . TraceDocumentInterface::TAG_ENTRY_POS
-        ) .
-            ' ' . TraceDocumentInterface::TAG_ENTRY_FILE_LINE . "\n" .
-            TraceDocumentInterface::TAG_ENTRY_CLASS .
-            TraceDocumentInterface::TAG_ENTRY_TYPE .
-            TraceDocumentInterface::TAG_ENTRY_FUNCTION;
+        )
+            . ' '
+            . TraceDocumentInterface::TAG_ENTRY_FILE_LINE
+            . "\n"
+            . TraceDocumentInterface::TAG_ENTRY_CLASS
+            . TraceDocumentInterface::TAG_ENTRY_TYPE
+            . TraceDocumentInterface::TAG_ENTRY_FUNCTION;
     }
 
     public function getHr(): string

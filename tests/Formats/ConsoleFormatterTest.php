@@ -25,7 +25,7 @@ final class ConsoleFormatterTest extends TestCase
         $plainFormatter = new ThrowableHandlerPlainFormat();
         $consoleFormatter = new ThrowableHandlerConsoleFormat();
         $array = [
-            'getTraceEntryTemplate' => [],
+            'getItemTemplate' => [],
             'getHr' => [],
             'getLineBreak' => [],
             'wrapLink' => ['value'],

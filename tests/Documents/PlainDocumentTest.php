@@ -34,7 +34,7 @@ final class PlainDocumentTest extends TestCase
             ))
         );
         $verbosity = 0;
-        $this->assertInstanceOf(ThrowableHandlerPlainFormat::class, $document->getFormat());
+        $this->assertInstanceOf(ThrowableHandlerPlainFormat::class, $document->getDocumentFormat());
         $this->assertSame($verbosity, $document->verbosity());
         $verbosity = 16;
         $document = $document->withVerbosity($verbosity);

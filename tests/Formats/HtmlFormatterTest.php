@@ -21,10 +21,10 @@ final class HtmlFormatterTest extends TestCase
 {
     public function testAgainstPlain(): void
     {
-        $plainFormatter = new ThrowableHandlerPlainFormat();
-        $htmlFormatter = new ThrowableHandlerHtmlFormat();
+        $plainFormat = new ThrowableHandlerPlainFormat();
+        $htmlFormat = new ThrowableHandlerHtmlFormat();
         $array = [
-            'getTraceEntryTemplate' => [],
+            'getItemTemplate' => [],
             'getHr' => [],
             'getLineBreak' => [],
             'wrapLink' => ['value'],
@@ -33,17 +33,17 @@ final class HtmlFormatterTest extends TestCase
             'wrapTitle' => ['value'],
         ];
         foreach ($array as $methodName => $args) {
-            $plain = $plainFormatter->{$methodName}(...$args);
-            $html = $htmlFormatter->{$methodName}(...$args);
+            $plain = $plainFormat->{$methodName}(...$args);
+            $html = $htmlFormat->{$methodName}(...$args);
             $this->assertSame($plain, strip_tags($html));
         }
     }
 
     public function testFormatting(): void
     {
-        $htmlFormatter = new ThrowableHandlerHtmlFormat();
+        $htmlFormat = new ThrowableHandlerHtmlFormat();
         $array = [
-            'getTraceEntryTemplate' => [
+            'getItemTemplate' => [
                 [],
                 '<div class="pre pre--stack-entry %cssEvenClass%">#%pos% %fileLine%' . "\n" . '%class%%type%%function%</div>'
             ],
@@ -79,7 +79,7 @@ final class HtmlFormatterTest extends TestCase
         foreach ($array as $methodName => $aux) {
             $args = $aux[0];
             $expected = $aux[1];
-            $html = $htmlFormatter->{$methodName}(...$args);
+            $html = $htmlFormat->{$methodName}(...$args);
             $this->assertSame($expected, $html);
         }
     }

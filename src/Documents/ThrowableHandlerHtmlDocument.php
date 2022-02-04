@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler\Documents;
 
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerHtmlFormat;
-use Chevere\Trace\Interfaces\TraceFormatInterface;
+use Chevere\VarDump\Interfaces\VarDumpDocumentFormatInterface;
 
 final class ThrowableHandlerHtmlDocument extends ThrowableHandlerDocument
 {
@@ -28,7 +28,7 @@ final class ThrowableHandlerHtmlDocument extends ThrowableHandlerDocument
 
     public const DEBUG_BODY_HTML = '<main class="main--stack"><div>%content%</div></main>';
 
-    public function getFormat(): TraceFormatInterface
+    public function getDocumentFormat(): VarDumpDocumentFormatInterface
     {
         return new ThrowableHandlerHtmlFormat();
     }
@@ -53,12 +53,12 @@ final class ThrowableHandlerHtmlDocument extends ThrowableHandlerDocument
     public function getSectionTitle(): string
     {
         if (!$this->handler->isDebug()) {
-            return $this->format->wrapTitle(self::NO_DEBUG_TITLE_PLAIN) .
+            return $this->documentFormat->wrapTitle(self::NO_DEBUG_TITLE_PLAIN) .
                 self::NO_DEBUG_CONTENT_HTML . '<p><span class="user-select-all">' .
                 self::TAG_DATE_TIME_UTC_ATOM . '</span> • <span class="user-select-all">' . self::TAG_ID . '</span></p>';
         }
 
-        return $this->format->wrapTitle(
+        return $this->documentFormat->wrapTitle(
             self::TAG_TITLE . ' <span>in&nbsp;' . self::TAG_FILE_LINE . '</span>'
         );
     }
