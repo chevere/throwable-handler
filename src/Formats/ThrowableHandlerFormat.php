@@ -13,22 +13,22 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler\Formats;
 
+use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerFormatInterface;
 use Chevere\Trace\Interfaces\TraceDocumentInterface;
-use Chevere\VarDump\Interfaces\VarDumpDocumentFormatInterface;
 use Chevere\VarDump\Interfaces\VarDumpFormatInterface;
 
-abstract class ThrowableHandlerFormat implements VarDumpDocumentFormatInterface
+abstract class ThrowableHandlerFormat implements ThrowableHandlerFormatInterface
 {
-    protected VarDumpFormatInterface $varDumpFormatter;
+    protected VarDumpFormatInterface $varDumpFormat;
 
     final public function __construct()
     {
-        $this->varDumpFormatter = $this->getVarDumpFormat();
+        $this->varDumpFormat = $this->getVarDumpFormat();
     }
 
     final public function varDumpFormat(): VarDumpFormatInterface
     {
-        return $this->varDumpFormatter;
+        return $this->varDumpFormat;
     }
 
     abstract public function getVarDumpFormat(): VarDumpFormatInterface;
@@ -47,27 +47,39 @@ abstract class ThrowableHandlerFormat implements VarDumpDocumentFormatInterface
         return '------------------------------------------------------------';
     }
 
+    public function getNewLine(): string
+    {
+        return "\n";
+    }
+
+    public function getWrapNewLine(string $text): string
+    {
+        return $this->getNewLine()
+            . $text
+            . $this->getNewLine();
+    }
+
     public function getLineBreak(): string
     {
-        return "\n\n";
+        return str_repeat($this->getNewLine(), 2);
     }
 
-    public function wrapLink(string $value): string
+    public function getWrapLink(string $value): string
     {
         return $value;
     }
 
-    public function wrapHidden(string $value): string
+    public function getWrapHidden(string $value): string
     {
         return $value;
     }
 
-    public function wrapSectionTitle(string $value): string
+    public function getWrapSectionTitle(string $value): string
     {
         return $value;
     }
 
-    public function wrapTitle(string $value): string
+    public function getWrapTitle(string $value): string
     {
         return $value;
     }

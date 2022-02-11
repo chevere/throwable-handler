@@ -14,18 +14,18 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler\Documents;
 
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerDocumentInterface;
+use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerFormatInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableReadInterface;
 use Chevere\ThrowableHandler\ThrowableRead;
 use Chevere\Trace\TraceDocument;
-use Chevere\VarDump\Interfaces\VarDumpDocumentFormatInterface;
 use DateTimeInterface;
 
 abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInterface
 {
     protected ThrowableHandlerInterface $handler;
 
-    protected VarDumpDocumentFormatInterface $documentFormat;
+    protected ThrowableHandlerFormatInterface $format;
 
     protected array $sections = self::SECTIONS;
 
@@ -38,11 +38,11 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
     final public function __construct(ThrowableHandlerInterface $throwableHandler)
     {
         $this->handler = $throwableHandler;
-        $this->documentFormat = $this->getDocumentFormat();
+        $this->format = $this->getFormat();
         $this->template = $this->getTemplate();
     }
 
-    abstract public function getDocumentFormat(): VarDumpDocumentFormatInterface;
+    abstract public function getFormat(): ThrowableHandlerFormatInterface;
 
     final public function withVerbosity(int $verbosity): static
     {
@@ -81,7 +81,7 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
         }
 
         return $this->prepare(strtr(
-            implode($this->documentFormat->getLineBreak(), array_filter($template)),
+            implode($this->format->getLineBreak(), array_filter($template)),
             $this->tags
         ));
     }
@@ -106,14 +106,14 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
 
     public function getSectionTitle(): string
     {
-        return $this->documentFormat
-            ->wrapTitle(static::TAG_TITLE . ' in ' . static::TAG_FILE_LINE);
+        return $this->format
+            ->getWrapTitle(static::TAG_TITLE . ' in ' . static::TAG_FILE_LINE);
     }
 
     public function getSectionMessage(): string
     {
-        return $this->documentFormat
-            ->wrapSectionTitle('# Message ' . static::TAG_CODE_WRAP) .
+        return $this->format
+            ->getWrapSectionTitle('# Message ' . static::TAG_CODE_WRAP) .
             "\n" . $this->getContent(static::TAG_MESSAGE);
     }
 
@@ -126,17 +126,17 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
         $return = '';
         do {
             $throwableRead = new ThrowableRead($throwable);
-            $return .= $this->documentFormat->wrapSectionTitle(
+            $return .= $this->format->getWrapSectionTitle(
                 '# └ ' . $throwableRead->className() . ' thrown ' .
                 $this->getThrowableReadCode($throwableRead) .
                 "\n"
             );
             $return .= $this->getContent(
                 $throwable->getMessage() .
-                ' in ' . $this->documentFormat->wrapLink($throwableRead->file() . ':' . $throwableRead->line())
+                ' in ' . $this->format->getWrapLink($throwableRead->file() . ':' . $throwableRead->line())
             );
             if ($throwable->getPrevious() !== null) {
-                $return .= $this->documentFormat->getLineBreak();
+                $return .= $this->format->getLineBreak();
             }
         } while ($throwable = $throwable->getPrevious());
 
@@ -145,13 +145,13 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
 
     public function getSectionId(): string
     {
-        return $this->documentFormat
-            ->wrapSectionTitle('# Incident ID:' . static::TAG_ID);
+        return $this->format
+            ->getWrapSectionTitle('# Incident ID:' . static::TAG_ID);
     }
 
     public function getSectionTime(): string
     {
-        return $this->documentFormat->wrapSectionTitle('# Time') . "\n" .
+        return $this->format->getWrapSectionTitle('# Time') . "\n" .
             $this->getContent(
                 static::TAG_DATE_TIME_UTC_ATOM .
                 ' [' . static::TAG_TIMESTAMP . ']'
@@ -160,13 +160,13 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
 
     public function getSectionStack(): string
     {
-        return $this->documentFormat->wrapSectionTitle('# Stack trace') . "\n" .
+        return $this->format->getWrapSectionTitle('# Stack trace') . "\n" .
             $this->getContent(static::TAG_STACK);
     }
 
     public function getSectionServer(): string
     {
-        return $this->documentFormat->wrapSectionTitle('# Server') . "\n" .
+        return $this->format->getWrapSectionTitle('# Server') . "\n" .
             $this->getContent(static::TAG_PHP_UNAME);
     }
 
@@ -186,7 +186,7 @@ abstract class ThrowableHandlerDocument implements ThrowableHandlerDocumentInter
     {
         return (new TraceDocument(
             $this->handler->throwableRead()->trace(),
-            $this->documentFormat
+            $this->format
         ))->__toString();
     }
 

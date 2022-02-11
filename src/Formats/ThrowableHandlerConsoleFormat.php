@@ -27,7 +27,7 @@ final class ThrowableHandlerConsoleFormat extends ThrowableHandlerFormat
 
     public function getItemTemplate(): string
     {
-        return $this->wrapSectionTitle(
+        return $this->getWrapSectionTitle(
             '#' . TraceDocumentInterface::TAG_ENTRY_POS
         )
             . ' '
@@ -43,12 +43,12 @@ final class ThrowableHandlerConsoleFormat extends ThrowableHandlerFormat
         return (string) (new Color(str_repeat('-', 60)))->blue();
     }
 
-    public function wrapLink(string $value): string
+    public function getWrapLink(string $value): string
     {
         return (string) (new Color($value))->underline()->fg('blue');
     }
 
-    public function wrapSectionTitle(string $value): string
+    public function getWrapSectionTitle(string $value): string
     {
         return (string) (new Color($value))->green();
     }

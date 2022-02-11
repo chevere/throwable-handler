@@ -52,12 +52,12 @@ final class ThrowableTraceFormatterTest extends TestCase
             new ThrowableHandlerPlainFormat()
         );
         $this->assertSame([
-            0 => "#0 \n(boolean false, NULL)",
+            0 => "#0 \n(bool(false), null)",
         ], $document->toArray());
         $this->assertSame(
             $this->hrLine .
             "\n#0 " .
-            "\n(boolean false, NULL)" .
+            "\n(bool(false), null)" .
             "\n" . $this->hrLine,
             $document->__toString()
         );

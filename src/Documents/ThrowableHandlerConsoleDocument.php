@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler\Documents;
 
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerConsoleFormat;
-use Chevere\VarDump\Interfaces\VarDumpDocumentFormatInterface;
+use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerFormatInterface;
 use Colors\Color;
 
 final class ThrowableHandlerConsoleDocument extends ThrowableHandlerDocument
 {
-    public function getDocumentFormat(): VarDumpDocumentFormatInterface
+    public function getFormat(): ThrowableHandlerFormatInterface
     {
         return new ThrowableHandlerConsoleFormat();
     }
@@ -28,7 +28,7 @@ final class ThrowableHandlerConsoleDocument extends ThrowableHandlerDocument
     {
         return strtr('%t in %f', [
             '%t' => strval((new Color(self::TAG_TITLE))->bold()->red()),
-            '%f' => $this->documentFormat->wrapLink(self::TAG_FILE_LINE),
+            '%f' => $this->format->getWrapLink(self::TAG_FILE_LINE),
         ]);
     }
 }

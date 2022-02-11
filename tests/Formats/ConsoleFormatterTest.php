@@ -28,9 +28,9 @@ final class ConsoleFormatterTest extends TestCase
             'getItemTemplate' => [],
             'getHr' => [],
             'getLineBreak' => [],
-            'wrapLink' => ['value'],
-            'wrapSectionTitle' => ['value'],
-            'wrapTitle' => ['value'],
+            'getWrapLink' => ['value'],
+            'getWrapSectionTitle' => ['value'],
+            'getWrapTitle' => ['value'],
         ];
         foreach ($array as $methodName => $args) {
             $plain = $plainFormatter->{$methodName}(...$args);

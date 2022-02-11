@@ -48,19 +48,19 @@ final class ThrowableHandlerHtmlFormat extends ThrowableHandlerFormat
         return "\n<br>\n";
     }
     
-    public function wrapHidden(string $value): string
+    public function getWrapHidden(string $value): string
     {
         return '<span class="hide">' . $value . '</span>';
     }
     
-    public function wrapSectionTitle(string $value): string
+    public function getWrapSectionTitle(string $value): string
     {
         return '<div class="title">'
-            . str_replace('# ', $this->wrapHidden('#&nbsp;'), $value)
+            . str_replace('# ', $this->getWrapHidden('#&nbsp;'), $value)
             . '</div>';
     }
 
-    public function wrapTitle(string $value): string
+    public function getWrapTitle(string $value): string
     {
         return '<div class="title title--scream">' . $value . '</div>';
     }

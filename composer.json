@@ -14,7 +14,7 @@
     "require": {
         "chevere/chevere": "^0.3",
         "chevere/var-dump": "^0.1",
-        "chevere/trace": "^0.1"
+        "chevere/trace": "^0.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

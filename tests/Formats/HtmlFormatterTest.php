@@ -27,10 +27,10 @@ final class HtmlFormatterTest extends TestCase
             'getItemTemplate' => [],
             'getHr' => [],
             'getLineBreak' => [],
-            'wrapLink' => ['value'],
-            'wrapHidden' => ['value'],
-            'wrapSectionTitle' => ['value'],
-            'wrapTitle' => ['value'],
+            'getWrapLink' => ['value'],
+            'getWrapHidden' => ['value'],
+            'getWrapSectionTitle' => ['value'],
+            'getWrapTitle' => ['value'],
         ];
         foreach ($array as $methodName => $args) {
             $plain = $plainFormat->{$methodName}(...$args);
@@ -55,23 +55,23 @@ final class HtmlFormatterTest extends TestCase
                 [],
                 "\n<br>\n"
             ],
-            'wrapLink' => [
+            'getWrapLink' => [
                 ['value'],
                 'value'
             ],
-            'wrapHidden' => [
+            'getWrapHidden' => [
                 ['value'],
                 '<span class="hide">value</span>'
             ],
-            'wrapSectionTitle' => [
+            'getWrapSectionTitle' => [
                 ['value'],
                 '<div class="title">value</div>'
             ],
-            'wrapSectionTitle' => [
+            'getWrapSectionTitle' => [
                 ['# value'],
                 '<div class="title"><span class="hide">#&nbsp;</span>value</div>'
             ],
-            'wrapTitle' => [
+            'getWrapTitle' => [
                 ['value'],
                 '<div class="title title--scream">value</div>'
             ],

@@ -46,7 +46,7 @@ final class HtmlDocumentTest extends TestCase
     {
         $this->exceptionHandler = $this->exceptionHandler->withIsDebug(true);
         $document = new ThrowableHandlerHtmlDocument($this->exceptionHandler);
-        $this->assertInstanceOf(ThrowableHandlerHtmlFormat::class, $document->getDocumentFormat());
+        $this->assertInstanceOf(ThrowableHandlerHtmlFormat::class, $document->getFormat());
         $sectionTitle = $document->getSectionTitle();
         $plainDocument = new ThrowableHandlerPlainDocument($this->exceptionHandler);
         $this->assertTrue(strlen($sectionTitle) > $plainDocument->getSectionTitle());
@@ -59,7 +59,7 @@ final class HtmlDocumentTest extends TestCase
     {
         $this->exceptionHandler = $this->exceptionHandler->withIsDebug(false);
         $document = new ThrowableHandlerHtmlDocument($this->exceptionHandler);
-        $this->assertInstanceOf(ThrowableHandlerHtmlFormat::class, $document->getDocumentFormat());
+        $this->assertInstanceOf(ThrowableHandlerHtmlFormat::class, $document->getFormat());
         $sectionTitle = $document->getSectionTitle();
         $plainDocument = new ThrowableHandlerPlainDocument($this->exceptionHandler);
         $this->assertTrue(strlen($sectionTitle) > $plainDocument->getSectionTitle());

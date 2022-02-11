@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler\Interfaces;
 
-use Chevere\VarDump\Interfaces\VarDumpDocumentFormatInterface;
 use Stringable;
 
 /**
@@ -144,7 +143,7 @@ interface ThrowableHandlerDocumentInterface extends Stringable
     public function getTemplate(): array;
 
     /**
-     * Returns the document format.
+     * Returns a new trace format instance.
      */
-    public function getDocumentFormat(): VarDumpDocumentFormatInterface;
+    public function getFormat(): ThrowableHandlerFormatInterface;
 }
