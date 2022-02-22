@@ -48,24 +48,24 @@ interface ThrowableReadInterface
     ];
 
     /**
-     * @var string[] PHP error code LogLevel table. Stripped from Monolog\ErrorHandler::defaultErrorLevelMap
+     * @var string[] PHP error code LogLevel table. Stripped from Psr\Log
      */
     public const ERROR_LEVELS = [
-        E_ERROR => LogLevel::CRITICAL,
-        E_WARNING => LogLevel::WARNING,
-        E_PARSE => LogLevel::ALERT,
-        E_NOTICE => LogLevel::NOTICE,
-        E_CORE_ERROR => LogLevel::CRITICAL,
-        E_CORE_WARNING => LogLevel::WARNING,
-        E_COMPILE_ERROR => LogLevel::ALERT,
-        E_COMPILE_WARNING => LogLevel::WARNING,
-        E_USER_ERROR => LogLevel::ERROR,
-        E_USER_WARNING => LogLevel::WARNING,
-        E_USER_NOTICE => LogLevel::NOTICE,
-        E_STRICT => LogLevel::NOTICE,
-        E_RECOVERABLE_ERROR => LogLevel::ERROR,
-        E_DEPRECATED => LogLevel::NOTICE,
-        E_USER_DEPRECATED => LogLevel::NOTICE,
+        E_ERROR => 'critical',
+        E_WARNING => 'warning',
+        E_PARSE => 'alert',
+        E_NOTICE => 'notice',
+        E_CORE_ERROR => 'critical',
+        E_CORE_WARNING => 'warning',
+        E_COMPILE_ERROR => 'alert',
+        E_COMPILE_WARNING => 'warning',
+        E_USER_ERROR => 'error',
+        E_USER_WARNING => 'warning',
+        E_USER_NOTICE => 'notice',
+        E_STRICT => 'notice',
+        E_RECOVERABLE_ERROR => 'error',
+        E_DEPRECATED => 'notice',
+        E_USER_DEPRECATED => 'notice',
     ];
 
     /**
