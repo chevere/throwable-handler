@@ -15,7 +15,6 @@ namespace Chevere\ThrowableHandler\Interfaces;
 
 use Chevere\Message\Interfaces\MessageInterface;
 use Chevere\Throwable\Exceptions\RangeException;
-use Psr\Log\LogLevel;
 use Throwable;
 use TypeError;
 
