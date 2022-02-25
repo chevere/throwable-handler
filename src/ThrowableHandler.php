@@ -26,14 +26,13 @@ final class ThrowableHandler implements ThrowableHandlerInterface
 {
     public const ERRORS_AS_EXCEPTIONS = __NAMESPACE__ . '\errorsAsExceptions';
 
-    public const CONSOLE_HANDLER = __NAMESPACE__ . '\consoleHandler';
-    
-    public const HTML_HANDLER =
-    __NAMESPACE__ . '\htmlHandler';
-    
-    public const PLAIN_HANDLER = __NAMESPACE__ . '\plainHandler';
+    public const SHUTDOWN_ERRORS_AS_EXCEPTIONS = __NAMESPACE__ . '\shutdownErrorsAsExceptions';
 
-    public const FATAL_ERROR_HANDLER = __NAMESPACE__ . '\fatalErrorHandler';
+    public const CONSOLE_HANDLER = __NAMESPACE__ . '\handleAsConsole';
+    
+    public const HTML_HANDLER = __NAMESPACE__ . '\handleAsHtml';
+    
+    public const PLAIN_HANDLER = __NAMESPACE__ . '\handleAsPlain';
     
     private DateTimeInterface $dateTimeUtc;
 

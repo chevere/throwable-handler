@@ -26,52 +26,45 @@ use Chevere\Writer\WritersInstance;
 use LogicException;
 use Throwable;
 
-// @codeCoverageIgnoreStart
-
-function errorsAsExceptions(int $severity, string $message, string $file, int $line): void
+function handleAsPlain(Throwable $throwable): void
 {
-    throw new ErrorException(new Message($message), 0, $severity, $file, $line);
-}
-
-function plainHandler(Throwable $throwable): void
-{
-    handleExceptionAs(
-        plainHandlerDocument($throwable)
+    handleExceptionDocument(
+        plainDocument($throwable)
     );
 }
 
-function plainHandlerDocument(Throwable $throwable): ThrowableHandlerPlainDocument
+function plainDocument(Throwable $throwable): ThrowableHandlerPlainDocument
 {
     return new ThrowableHandlerPlainDocument(
         throwableHandler($throwable)
     );
 }
 
-function consoleHandler(Throwable $throwable): void
+function handleAsConsole(Throwable $throwable): void
 {
-    handleExceptionAs(
-        consoleHandlerDocument($throwable)
+    handleExceptionDocument(
+        consoleDocument($throwable)
     );
 }
 
-function consoleHandlerDocument(Throwable $throwable): ThrowableHandlerConsoleDocument
+function consoleDocument(Throwable $throwable): ThrowableHandlerConsoleDocument
 {
     return new ThrowableHandlerConsoleDocument(
         throwableHandler($throwable)
     );
 }
 
-function htmlHandler(Throwable $throwable): void
+function handleasHtml(Throwable $throwable): void
 {
     if (!headers_sent()) {
         http_response_code(500);
     }
-    handleExceptionAs(
-        htmlHandlerDocument($throwable)
+    handleExceptionDocument(
+        htmlDocument($throwable)
     );
 }
 
-function htmlHandlerDocument(Throwable $throwable): ThrowableHandlerHtmlDocument
+function htmlDocument(Throwable $throwable): ThrowableHandlerHtmlDocument
 {
     return new ThrowableHandlerHtmlDocument(
         throwableHandler($throwable)
@@ -83,7 +76,7 @@ function throwableHandler(Throwable $throwable): ThrowableHandlerInterface
     return new ThrowableHandler(new ThrowableRead($throwable));
 }
 
-function handleExceptionAs(ThrowableHandlerDocumentInterface $document): void
+function handleExceptionDocument(ThrowableHandlerDocumentInterface $document): void
 {
     try {
         $writer = WritersInstance::get()->error();
@@ -95,7 +88,12 @@ function handleExceptionAs(ThrowableHandlerDocumentInterface $document): void
     die(255);
 }
 
-function fatalErrorHandler(): void
+function errorsAsExceptions(int $severity, string $message, string $file, int $line): void
+{
+    throw new ErrorException(new Message($message), 0, $severity, $file, $line);
+}
+
+function shutdownErrorsAsExceptions(): void
 {
     $error = error_get_last();
     if ($error === null) {
@@ -115,5 +113,3 @@ function fatalErrorHandler(): void
         )
     );
 }
-
-// @codeCoverageIgnoreEnd
