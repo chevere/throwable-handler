@@ -20,19 +20,50 @@ use Chevere\ThrowableHandler\Documents\ThrowableHandlerHtmlDocument;
 use Chevere\ThrowableHandler\Documents\ThrowableHandlerPlainDocument;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerDocumentInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
+use Chevere\Writer\Interfaces\WriterInterface;
 use function Chevere\Writer\streamFor;
 use Chevere\Writer\StreamWriter;
 use Chevere\Writer\WritersInstance;
-use LogicException;
 use Throwable;
 
+// @codeCoverageIgnoreStart
+
+/**
+ * Handle throwables as plain documents.
+ */
 function handleAsPlain(Throwable $throwable): void
 {
-    handleExceptionDocument(
+    writeThrowableDocument(
         plainDocument($throwable)
     );
 }
 
+/**
+ * Handle throwables as console documents.
+ */
+function handleAsConsole(Throwable $throwable): void
+{
+    writeThrowableDocument(
+        consoleDocument($throwable)
+    );
+}
+
+/**
+ * Handle throwables as HTML documents.
+ */
+function handleasHtml(Throwable $throwable): void
+{
+    if (!headers_sent()) {
+        http_response_code(500);
+    }
+    writeThrowableDocument(
+        htmlDocument($throwable)
+    );
+}
+
+/**
+ * Get a plain document from a throwable.
+ */
 function plainDocument(Throwable $throwable): ThrowableHandlerPlainDocument
 {
     return new ThrowableHandlerPlainDocument(
@@ -40,13 +71,9 @@ function plainDocument(Throwable $throwable): ThrowableHandlerPlainDocument
     );
 }
 
-function handleAsConsole(Throwable $throwable): void
-{
-    handleExceptionDocument(
-        consoleDocument($throwable)
-    );
-}
-
+/**
+ * Get a console document from a throwable.
+ */
 function consoleDocument(Throwable $throwable): ThrowableHandlerConsoleDocument
 {
     return new ThrowableHandlerConsoleDocument(
@@ -54,16 +81,9 @@ function consoleDocument(Throwable $throwable): ThrowableHandlerConsoleDocument
     );
 }
 
-function handleasHtml(Throwable $throwable): void
-{
-    if (!headers_sent()) {
-        http_response_code(500);
-    }
-    handleExceptionDocument(
-        htmlDocument($throwable)
-    );
-}
-
+/**
+ * Get a HTML document from a throwable.
+ */
 function htmlDocument(Throwable $throwable): ThrowableHandlerHtmlDocument
 {
     return new ThrowableHandlerHtmlDocument(
@@ -71,16 +91,24 @@ function htmlDocument(Throwable $throwable): ThrowableHandlerHtmlDocument
     );
 }
 
+/**
+ * Get a throwable handler from a throwable.
+ */
 function throwableHandler(Throwable $throwable): ThrowableHandlerInterface
 {
     return new ThrowableHandler(new ThrowableRead($throwable));
 }
 
-function handleExceptionDocument(ThrowableHandlerDocumentInterface $document): void
-{
+/**
+ * Write a throwable document.
+ */
+function writeThrowableDocument(
+    ThrowableHandlerDocumentInterface $document,
+    ?WriterInterface $writer = null
+): void {
     try {
-        $writer = WritersInstance::get()->error();
-    } catch (LogicException $e) {
+        $writer = $writer ?? WritersInstance::get()->error();
+    } catch (Throwable $e) {
         $writer = new StreamWriter(streamFor('php://stderr', 'w'));
     }
     $writer->write($document->__toString() . "\n");
@@ -88,14 +116,21 @@ function handleExceptionDocument(ThrowableHandlerDocumentInterface $document): v
     die(255);
 }
 
-function errorsAsExceptions(int $severity, string $message, string $file, int $line): void
+/**
+ * Handle error as ErrorException.
+ */
+function errorAsException(int $severity, string $message, string $file, int $line): void
 {
     throw new ErrorException(new Message($message), 0, $severity, $file, $line);
 }
 
-function shutdownErrorsAsExceptions(): void
+/**
+ * Handle shutdown error as ErrorException.
+ */
+function shutdownErrorAsException(): void
 {
     $error = error_get_last();
+    vd($error);
     if ($error === null) {
         return;
     }
@@ -113,3 +148,5 @@ function shutdownErrorsAsExceptions(): void
         )
     );
 }
+
+// @codeCoverageIgnoreEnd

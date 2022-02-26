@@ -24,15 +24,15 @@ use Throwable;
 
 final class ThrowableHandler implements ThrowableHandlerInterface
 {
-    public const ERRORS_AS_EXCEPTIONS = __NAMESPACE__ . '\errorsAsExceptions';
+    public const ERROR_AS_EXCEPTION = __NAMESPACE__ . '\errorAsException';
 
-    public const SHUTDOWN_ERRORS_AS_EXCEPTIONS = __NAMESPACE__ . '\shutdownErrorsAsExceptions';
+    public const SHUTDOWN_ERROR_AS_EXCEPTION = __NAMESPACE__ . '\shutdownErrorAsException';
 
-    public const CONSOLE_HANDLER = __NAMESPACE__ . '\handleAsConsole';
-    
-    public const HTML_HANDLER = __NAMESPACE__ . '\handleAsHtml';
-    
-    public const PLAIN_HANDLER = __NAMESPACE__ . '\handleAsPlain';
+    public const PLAIN = __NAMESPACE__ . '\handleAsPlain';
+
+    public const CONSOLE = __NAMESPACE__ . '\handleAsConsole';
+
+    public const HTML = __NAMESPACE__ . '\handleAsHtml';
     
     private DateTimeInterface $dateTimeUtc;
 

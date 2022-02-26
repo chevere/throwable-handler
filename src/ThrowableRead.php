@@ -148,7 +148,7 @@ final class ThrowableRead implements ThrowableReadInterface
     private function setTrace(Throwable $throwable): void
     {
         $this->trace = $throwable->getTrace();
-        if (($this->trace[0]['function'] ?? '') === ThrowableHandler::ERRORS_AS_EXCEPTIONS) {
+        if (($this->trace[0]['function'] ?? '') === ThrowableHandler::ERROR_AS_EXCEPTION) {
             array_shift($this->trace);
         }
         array_unshift($this->trace, [
