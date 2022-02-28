@@ -130,7 +130,6 @@ function errorAsException(int $severity, string $message, string $file, int $lin
 function shutdownErrorAsException(): void
 {
     $error = error_get_last();
-    vd($error);
     if ($error === null) {
         return;
     }
