@@ -51,7 +51,7 @@ function handleAsConsole(Throwable $throwable): void
 /**
  * Handle throwables as HTML documents.
  */
-function handleasHtml(Throwable $throwable): void
+function handleAsHtml(Throwable $throwable): void
 {
     if (!headers_sent()) {
         http_response_code(500);
