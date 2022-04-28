@@ -50,9 +50,11 @@ jobs:
       - name: Validate composer
         run: composer validate
       - name: Get composer cache directory
+        if: ${{ !env.ACT }}
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
       - name: Cache dependencies
+        if: ${{ !env.ACT }}
         uses: actions/cache@v2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}

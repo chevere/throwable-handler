@@ -12,9 +12,9 @@
         }
     ],
     "require": {
-        "chevere/chevere": "~0.3",
-        "chevere/var-dump": "~0.1",
-        "chevere/trace": "~0.2"
+        "chevere/chevere": "^0.7",
+        "chevere/var-dump": "^0.2",
+        "chevere/trace": "^0.2"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.5",
