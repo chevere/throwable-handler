@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\Tests\ThrowableHandler\Documents;
 
-use Chevere\ThrowableHandler\Documents\ThrowableHandlerPlainDocument;
+use Chevere\ThrowableHandler\Documents\PlainDocument;
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerPlainFormat;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerDocumentInterface;
 use Chevere\ThrowableHandler\ThrowableHandler;
@@ -25,7 +25,7 @@ final class PlainDocumentTest extends TestCase
 {
     public function testConstruct(): void
     {
-        $document = new ThrowableHandlerPlainDocument(
+        $document = new PlainDocument(
             new ThrowableHandler(new ThrowableRead(
                 new LogicException(
                     'Ups',

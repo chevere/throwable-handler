@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Chevere\Tests\ThrowableHandler\Documents;
 
-use Chevere\ThrowableHandler\Documents\ThrowableHandlerConsoleDocument;
-use Chevere\ThrowableHandler\Documents\ThrowableHandlerPlainDocument;
+use Chevere\ThrowableHandler\Documents\ConsoleDocument;
+use Chevere\ThrowableHandler\Documents\PlainDocument;
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerConsoleFormat;
 use Chevere\ThrowableHandler\ThrowableHandler;
 use Chevere\ThrowableHandler\ThrowableRead;
@@ -38,7 +38,7 @@ final class ConsoleDocumentTest extends TestCase
                 )
             )
         ));
-        $document = new ThrowableHandlerConsoleDocument($handler);
+        $document = new ConsoleDocument($handler);
         $this->assertSame(
             (new Color())->isSupported()
                 ? '[31m[1m%title%[0m[0m in [34m[4m%fileLine%[0m[0m'
@@ -50,7 +50,7 @@ final class ConsoleDocumentTest extends TestCase
             $document->getFormat()
         );
         $sectionTitle = $document->getSectionTitle();
-        $plainDocument = new ThrowableHandlerPlainDocument($handler);
+        $plainDocument = new PlainDocument($handler);
         $this->assertTrue(
             strlen($sectionTitle) > $plainDocument->getSectionTitle()
         );

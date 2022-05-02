@@ -15,9 +15,9 @@ namespace Chevere\ThrowableHandler;
 
 use Chevere\Message\Message;
 use Chevere\Throwable\Exceptions\ErrorException;
-use Chevere\ThrowableHandler\Documents\ThrowableHandlerConsoleDocument;
-use Chevere\ThrowableHandler\Documents\ThrowableHandlerHtmlDocument;
-use Chevere\ThrowableHandler\Documents\ThrowableHandlerPlainDocument;
+use Chevere\ThrowableHandler\Documents\ConsoleDocument;
+use Chevere\ThrowableHandler\Documents\HtmlDocument;
+use Chevere\ThrowableHandler\Documents\PlainDocument;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerDocumentInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\Writer\Interfaces\WriterInterface;
@@ -64,9 +64,9 @@ function handleAsHtml(Throwable $throwable): void
 /**
  * Get a plain document from a throwable.
  */
-function plainDocument(Throwable $throwable): ThrowableHandlerPlainDocument
+function plainDocument(Throwable $throwable): PlainDocument
 {
-    return new ThrowableHandlerPlainDocument(
+    return new PlainDocument(
         throwableHandler($throwable)
     );
 }
@@ -74,9 +74,9 @@ function plainDocument(Throwable $throwable): ThrowableHandlerPlainDocument
 /**
  * Get a console document from a throwable.
  */
-function consoleDocument(Throwable $throwable): ThrowableHandlerConsoleDocument
+function consoleDocument(Throwable $throwable): ConsoleDocument
 {
-    return new ThrowableHandlerConsoleDocument(
+    return new ConsoleDocument(
         throwableHandler($throwable)
     );
 }
@@ -84,9 +84,9 @@ function consoleDocument(Throwable $throwable): ThrowableHandlerConsoleDocument
 /**
  * Get a HTML document from a throwable.
  */
-function htmlDocument(Throwable $throwable): ThrowableHandlerHtmlDocument
+function htmlDocument(Throwable $throwable): HtmlDocument
 {
-    return new ThrowableHandlerHtmlDocument(
+    return new HtmlDocument(
         throwableHandler($throwable)
     );
 }

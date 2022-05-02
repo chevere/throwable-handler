@@ -16,7 +16,7 @@ namespace Chevere\ThrowableHandler\Documents;
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerHtmlFormat;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerFormatInterface;
 
-final class ThrowableHandlerHtmlDocument extends ThrowableHandlerDocument
+final class HtmlDocument extends ThrowableHandlerDocument
 {
     public const NO_DEBUG_TITLE_PLAIN = 'Something went wrong';
 
@@ -66,7 +66,7 @@ final class ThrowableHandlerHtmlDocument extends ThrowableHandlerDocument
     protected function prepare(string $document): string
     {
         $preDocument = strtr(self::HTML_TEMPLATE, [
-            '%bodyClass%' => headers_sent() ? 'body--block' : 'body--flex',
+            '%bodyClass%' => 'body--flex',
             '%css%' => file_get_contents(dirname(__DIR__) . '/src/template.css'),
             '%body%' => $this->handler->isDebug() ? self::DEBUG_BODY_HTML : self::NO_DEBUG_BODY_HTML,
         ]);

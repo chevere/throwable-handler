@@ -1,0 +1,27 @@
+Chevere\Throwable\Exceptions\LogicException thrown in /Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:17
+
+# └ RuntimeException thrown 
+Oops! in /Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:21
+
+# Message 
+Don't panic this is just a drill.
+
+# Incident ID:6270609983fde
+
+# Time
+2022-05-02T22:52:09+00:00 [1651531929]
+
+# Stack trace
+------------------------------------------------------------
+#0 /Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:17
+{main}()
+------------------------------------------------------------
+#1 /Users/rodolfo/git/chevere/throwable-handler/demo/throws/runtime.php:14
+require()
+------------------------------------------------------------
+#2 /Users/rodolfo/git/chevere/throwable-handler/demo/demo.php:23
+require(string(length=68))
+------------------------------------------------------------
+
+# Server
+Darwin rodolfo-mac.Home 21.4.0 Darwin Kernel Version 21.4.0: Fri Mar 18 00:47:26 PDT 2022; root:xnu-8020.101.4~15/RELEASE_ARM64_T8101 arm64

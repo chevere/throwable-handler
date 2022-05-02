@@ -1,0 +1,27 @@
+[31m[1mChevere\Throwable\Exceptions\LogicException thrown[0m[0m in [34m[4m/Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:17[0m[0m
+
+[32m# └ RuntimeException thrown 
+[0mOops! in [34m[4m/Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:21[0m[0m
+
+[32m# Message [0m
+Don't panic this is just a drill.
+
+[32m# Incident ID:6270609983fde[0m
+
+[32m# Time[0m
+2022-05-02T22:52:09+00:00 [1651531929]
+
+[32m# Stack trace[0m
+[34m------------------------------------------------------------[0m
+[32m#0[0m [38;5;111m/Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:17[0m
+[38;5;221m[0m[38;5;242m[0m[38;5;39m{main}()[0m
+[34m------------------------------------------------------------[0m
+[32m#1[0m [38;5;111m/Users/rodolfo/git/chevere/throwable-handler/demo/throws/runtime.php:14[0m
+[38;5;221m[0m[38;5;242m[0m[38;5;39mrequire()[0m
+[34m------------------------------------------------------------[0m
+[32m#2[0m [38;5;111m/Users/rodolfo/git/chevere/throwable-handler/demo/demo.php:23[0m
+[38;5;221m[0m[38;5;242m[0m[38;5;39mrequire(string(length=68))[0m
+[34m------------------------------------------------------------[0m
+
+[32m# Server[0m
+Darwin rodolfo-mac.Home 21.4.0 Darwin Kernel Version 21.4.0: Fri Mar 18 00:47:26 PDT 2022; root:xnu-8020.101.4~15/RELEASE_ARM64_T8101 arm64
