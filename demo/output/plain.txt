@@ -1,25 +1,25 @@
-Chevere\Throwable\Exceptions\LogicException thrown in /Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:17
+Chevere\Throwable\Exceptions\LogicException thrown in /var/www/html/demo/throws/throws.php:17
 
 # └ RuntimeException thrown 
-Oops! in /Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:21
+Oops! in /var/www/html/demo/throws/throws.php:21
 
 # Message 
 Don't panic this is just a drill.
 
-# Incident ID:6270609983fde
+# Incident ID:627064085e6fc
 
 # Time
-2022-05-02T22:52:09+00:00 [1651531929]
+2022-05-02T23:06:48+00:00 [1651532808]
 
 # Stack trace
 ------------------------------------------------------------
-#0 /Users/rodolfo/git/chevere/throwable-handler/demo/throws/throws.php:17
+#0 /var/www/html/demo/throws/throws.php:17
 {main}()
 ------------------------------------------------------------
-#1 /Users/rodolfo/git/chevere/throwable-handler/demo/throws/runtime.php:14
+#1 /var/www/html/demo/throws/runtime.php:14
 require()
 ------------------------------------------------------------
-#2 /Users/rodolfo/git/chevere/throwable-handler/demo/demo.php:23
+#2 /var/www/html/demo/demo.php:32
 require(string(length=68))
 ------------------------------------------------------------
 

@@ -19,6 +19,15 @@ use function Chevere\ThrowableHandler\throwableHandler;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+function stripLocal(string $document): string
+{
+    return str_replace(
+        dirname(__DIR__) . '/',
+        '/var/www/html/',
+        $document
+    );
+}
+
 try {
     require __DIR__ . '/throws/runtime.php';
 } catch (Throwable $e) {
@@ -37,8 +46,9 @@ try {
         'html.html' => (string) $html,
         'html-silent.html' => (string) $htmlSilent,
     ] as $filename => $document) {
+        $document = stripLocal($document);
         if ($filename == 'console.log') {
-            echo str_replace(dirname(__DIR__) . '/', '/var/www/html/', $document);
+            echo $document;
             echo "\n";
         }
         $file = fileForPath(__DIR__ . '/output/' . $filename);
