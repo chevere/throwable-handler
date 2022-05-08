@@ -22,7 +22,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 function stripLocal(string $document): string
 {
     return str_replace(
-        dirname(__DIR__) . '/',
+        dirname(__DIR__) . '/demo/',
         '/var/www/html/',
         $document
     );
