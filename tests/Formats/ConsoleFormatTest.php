@@ -14,16 +14,16 @@ declare(strict_types=1);
 namespace Chevere\Tests\ThrowableHandler\Formats;
 
 use Chevere\Str\Str;
-use Chevere\ThrowableHandler\Formats\ThrowableHandlerConsoleFormat;
-use Chevere\ThrowableHandler\Formats\ThrowableHandlerPlainFormat;
+use Chevere\ThrowableHandler\Formats\ConsoleFormat;
+use Chevere\ThrowableHandler\Formats\PlainFormat;
 use PHPUnit\Framework\TestCase;
 
-final class ConsoleFormatterTest extends TestCase
+final class ConsoleFormatTest extends TestCase
 {
     public function testConstruct(): void
     {
-        $plainFormatter = new ThrowableHandlerPlainFormat();
-        $consoleFormatter = new ThrowableHandlerConsoleFormat();
+        $plainFormatter = new PlainFormat();
+        $consoleFormatter = new ConsoleFormat();
         $array = [
             'getItemTemplate' => [],
             'getHr' => [],

@@ -18,7 +18,7 @@ use Chevere\Throwable\Exceptions\ErrorException;
 use Chevere\ThrowableHandler\Documents\ConsoleDocument;
 use Chevere\ThrowableHandler\Documents\HtmlDocument;
 use Chevere\ThrowableHandler\Documents\PlainDocument;
-use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerDocumentInterface;
+use Chevere\ThrowableHandler\Interfaces\DocumentInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\Writer\Interfaces\WriterInterface;
 use function Chevere\Writer\streamFor;
@@ -103,7 +103,7 @@ function throwableHandler(Throwable $throwable): ThrowableHandlerInterface
  * Write a throwable document.
  */
 function writeThrowableDocument(
-    ThrowableHandlerDocumentInterface $document,
+    DocumentInterface $document,
     ?WriterInterface $writer = null
 ): void {
     try {

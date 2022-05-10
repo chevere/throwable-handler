@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler\Formats;
 
-use Chevere\VarDump\Formats\VarDumpPlainFormat;
-use Chevere\VarDump\Interfaces\VarDumpFormatInterface;
+use Chevere\VarDump\Formats\PlainFormat as VarDumpPlainFormat;
+use Chevere\VarDump\Interfaces\FormatInterface as VarDumpFormatInterface;
 
-final class ThrowableHandlerPlainFormat extends ThrowableHandlerFormat
+final class PlainFormat extends Format
 {
     public function getVarDumpFormat(): VarDumpFormatInterface
     {

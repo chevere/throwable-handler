@@ -13,16 +13,16 @@ declare(strict_types=1);
 
 namespace Chevere\Tests\ThrowableHandler\Formats;
 
-use Chevere\ThrowableHandler\Formats\ThrowableHandlerHtmlFormat;
-use Chevere\ThrowableHandler\Formats\ThrowableHandlerPlainFormat;
+use Chevere\ThrowableHandler\Formats\HtmlFormat;
+use Chevere\ThrowableHandler\Formats\PlainFormat;
 use PHPUnit\Framework\TestCase;
 
-final class HtmlFormatterTest extends TestCase
+final class HtmlFormatTest extends TestCase
 {
     public function testAgainstPlain(): void
     {
-        $plainFormat = new ThrowableHandlerPlainFormat();
-        $htmlFormat = new ThrowableHandlerHtmlFormat();
+        $plainFormat = new PlainFormat();
+        $htmlFormat = new HtmlFormat();
         $array = [
             'getItemTemplate' => [],
             'getHr' => [],
@@ -41,7 +41,7 @@ final class HtmlFormatterTest extends TestCase
 
     public function testFormatting(): void
     {
-        $htmlFormat = new ThrowableHandlerHtmlFormat();
+        $htmlFormat = new HtmlFormat();
         $array = [
             'getItemTemplate' => [
                 [],

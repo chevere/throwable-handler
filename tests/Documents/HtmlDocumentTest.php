@@ -15,7 +15,7 @@ namespace Chevere\Tests\ThrowableHandler\Documents;
 
 use Chevere\ThrowableHandler\Documents\HtmlDocument;
 use Chevere\ThrowableHandler\Documents\PlainDocument;
-use Chevere\ThrowableHandler\Formats\ThrowableHandlerHtmlFormat;
+use Chevere\ThrowableHandler\Formats\HtmlFormat;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\ThrowableHandler\ThrowableHandler;
 use Chevere\ThrowableHandler\ThrowableRead;
@@ -46,7 +46,7 @@ final class HtmlDocumentTest extends TestCase
     {
         $this->exceptionHandler = $this->exceptionHandler->withIsDebug(true);
         $document = new HtmlDocument($this->exceptionHandler);
-        $this->assertInstanceOf(ThrowableHandlerHtmlFormat::class, $document->getFormat());
+        $this->assertInstanceOf(HtmlFormat::class, $document->getFormat());
         $sectionTitle = $document->getSectionTitle();
         $plainDocument = new PlainDocument($this->exceptionHandler);
         $this->assertTrue(strlen($sectionTitle) > $plainDocument->getSectionTitle());
@@ -59,7 +59,7 @@ final class HtmlDocumentTest extends TestCase
     {
         $this->exceptionHandler = $this->exceptionHandler->withIsDebug(false);
         $document = new HtmlDocument($this->exceptionHandler);
-        $this->assertInstanceOf(ThrowableHandlerHtmlFormat::class, $document->getFormat());
+        $this->assertInstanceOf(HtmlFormat::class, $document->getFormat());
         $sectionTitle = $document->getSectionTitle();
         $plainDocument = new PlainDocument($this->exceptionHandler);
         $this->assertTrue(strlen($sectionTitle) > $plainDocument->getSectionTitle());

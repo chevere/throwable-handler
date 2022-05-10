@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Chevere\Tests\ThrowableHandler;
 
-use Chevere\ThrowableHandler\Formats\ThrowableHandlerPlainFormat;
-use Chevere\Trace\TraceDocument;
+use Chevere\ThrowableHandler\Formats\PlainFormat;
+use Chevere\Trace\Trace;
 use Exception;
 use PHPUnit\Framework\TestCase;
 
-final class ThrowableTraceFormatterTest extends TestCase
+final class TraceFormatTest extends TestCase
 {
     private string $hrLine;
 
@@ -30,7 +30,7 @@ final class ThrowableTraceFormatterTest extends TestCase
     public function testRealStackTrace(): void
     {
         $e = new Exception('Message', 100);
-        $document = new TraceDocument($e->getTrace(), new ThrowableHandlerPlainFormat());
+        $document = new Trace($e->getTrace(), new PlainFormat());
         $this->assertIsArray($document->toArray());
         $this->assertIsString($document->__toString());
     }
@@ -47,9 +47,9 @@ final class ThrowableTraceFormatterTest extends TestCase
                 'args' => [false, null],
             ],
         ];
-        $document = new TraceDocument(
+        $document = new Trace(
             $trace,
-            new ThrowableHandlerPlainFormat()
+            new PlainFormat()
         );
         $this->assertSame([
             0 => "#0 \n(bool(false), null)",
@@ -88,9 +88,9 @@ final class ThrowableTraceFormatterTest extends TestCase
                 'args' => [],
             ],
         ];
-        $document = new TraceDocument(
+        $document = new Trace(
             $trace,
-            new ThrowableHandlerPlainFormat()
+            new PlainFormat()
         );
         $expectEntries = [];
         foreach (array_keys($trace) as $pos) {

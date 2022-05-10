@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler\Interfaces;
 
-use Chevere\Trace\Interfaces\TraceFormatInterface;
-use Chevere\VarDump\Interfaces\VarDumpFormatInterface;
+use Chevere\Trace\Interfaces\FormatInterface as TraceFormatInterface;
+use Chevere\VarDump\Interfaces\FormatInterface as VarDumpFormatInterface;
 
 /**
  * Describes the component in charge of defining a throwable handler format.
  */
-interface ThrowableHandlerFormatInterface extends TraceFormatInterface
+interface FormatInterface extends TraceFormatInterface
 {
     public function __construct();
 

@@ -18,7 +18,7 @@ use Stringable;
 /**
  * Describes the component in charge of defining a throwable handler document.
  */
-interface ThrowableHandlerDocumentInterface extends Stringable
+interface DocumentInterface extends Stringable
 {
     public const SECTION_TITLE = 'title';
 
@@ -145,5 +145,5 @@ interface ThrowableHandlerDocumentInterface extends Stringable
     /**
      * Returns a new trace format instance.
      */
-    public function getFormat(): ThrowableHandlerFormatInterface;
+    public function getFormat(): FormatInterface;
 }
