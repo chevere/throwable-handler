@@ -10,7 +10,7 @@
 
 ## Documentation
 
-Documentation is available at [chevere.org/packages/throwable-handler](https://chevere.org/packages/throwable-handler).
+Documentation is available at [chevere.org](https://chevere.org/packages/throwable-handler).
 
 ## License
 
