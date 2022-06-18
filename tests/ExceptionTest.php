@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\Tests\ThrowableHandler;
 
-use Chevere\Message\Message;
+use function Chevere\Message\message;
 use Chevere\Throwable\Exceptions\ErrorException;
 use Chevere\Throwable\Exceptions\LogicException;
 use Chevere\Throwable\Exceptions\RangeException;
@@ -25,7 +25,7 @@ final class ExceptionTest extends TestCase
 {
     public function testConstructWithException(): void
     {
-        $message = new Message('test');
+        $message = message('test');
         $code = 12345;
         $exceptionName = LogicException::class;
         // LINE
@@ -47,7 +47,7 @@ final class ExceptionTest extends TestCase
     {
         $code = ThrowableReadInterface::DEFAULT_ERROR_TYPE;
         $exceptionName = TestErrorException::class;
-        $exception = new $exceptionName(new Message('test'));
+        $exception = new $exceptionName(message('test'));
         $normalized = new ThrowableRead($exception);
         $this->assertSame((string) $code, $normalized->code());
     }
@@ -55,7 +55,7 @@ final class ExceptionTest extends TestCase
     public function testConstructWithErrorInvalidSeverity(): void
     {
         $exceptionName = TestErrorException::class;
-        $exception = new $exceptionName(new Message('test'));
+        $exception = new $exceptionName(message('test'));
         $exception->setSeverity(12346664321);
         $this->expectException(RangeException::class);
         new ThrowableRead($exception);

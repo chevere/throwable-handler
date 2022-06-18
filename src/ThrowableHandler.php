@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler;
 
-use Chevere\Message\Message;
+use function Chevere\Message\message;
 use Chevere\Throwable\Exceptions\RuntimeException;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableReadInterface;
@@ -33,7 +33,7 @@ final class ThrowableHandler implements ThrowableHandlerInterface
     public const CONSOLE = __NAMESPACE__ . '\handleAsConsole';
 
     public const HTML = __NAMESPACE__ . '\handleAsHtml';
-    
+
     private DateTimeInterface $dateTimeUtc;
 
     private string $id;
@@ -53,9 +53,9 @@ final class ThrowableHandler implements ThrowableHandlerInterface
         // @infection-ignore-all
         catch (Throwable $e) {
             throw new RuntimeException(
-                (new Message('Unable to create %var%: %error%'))
-                    ->code('%var%', 'dateTimeUtc')
-                    ->strtr('%error%', $e->getMessage())
+                message('Unable to create %var%: %error%')
+                    ->withCode('%var%', 'dateTimeUtc')
+                    ->withStrtr('%error%', $e->getMessage())
             );
         }
         // @codeCoverageIgnoreEnd

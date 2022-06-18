@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler;
 
 use Chevere\Message\Interfaces\MessageInterface;
-use Chevere\Message\Message;
+use function Chevere\Message\message;
 use Chevere\Throwable\Exceptions\RangeException;
 use Chevere\Throwable\Interfaces\ThrowableInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableReadInterface;
@@ -125,9 +125,9 @@ final class ThrowableRead implements ThrowableReadInterface
         $accepted = array_keys(ThrowableReadInterface::ERROR_TYPES);
         if (!in_array($this->severity, $accepted, true)) {
             throw new RangeException(
-                (new Message('Unknown severity value of %severity%, accepted values are: %accepted%'))
-                    ->code('%severity%', (string) $this->severity)
-                    ->code('%accepted%', implode(', ', $accepted))
+                message('Unknown severity value of %severity%, accepted values are: %accepted%')
+                    ->withCode('%severity%', (string) $this->severity)
+                    ->withCode('%accepted%', implode(', ', $accepted))
             );
         }
     }
@@ -137,7 +137,7 @@ final class ThrowableRead implements ThrowableReadInterface
         if ($throwable instanceof ThrowableInterface) {
             $this->message = $throwable->message();
         } else {
-            $this->message = new Message($throwable->getMessage());
+            $this->message = message($throwable->getMessage());
         }
     }
 

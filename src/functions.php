@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler;
 
-use Chevere\Message\Message;
+use function Chevere\Message\message;
 use Chevere\Throwable\Exceptions\ErrorException;
 use Chevere\ThrowableHandler\Documents\ConsoleDocument;
 use Chevere\ThrowableHandler\Documents\HtmlDocument;
@@ -121,7 +121,7 @@ function writeThrowableDocument(
  */
 function errorAsException(int $severity, string $message, string $file, int $line): void
 {
-    throw new ErrorException(new Message($message), 0, $severity, $file, $line);
+    throw new ErrorException(message($message), 0, $severity, $file, $line);
 }
 
 /**
@@ -139,7 +139,7 @@ function shutdownErrorAsException(): void
     restore_exception_handler();
     $handler(
         new ErrorException(
-            message: new Message($error["message"]),
+            message: message($error["message"]),
             code: 0,
             severity: $error["type"],
             filename: $error["file"],
