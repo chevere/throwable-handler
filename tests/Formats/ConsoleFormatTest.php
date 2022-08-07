@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Chevere\Tests\ThrowableHandler\Formats;
 
-use Chevere\Str\Str;
+use Chevere\String\ModifyString;
 use Chevere\ThrowableHandler\Formats\ConsoleFormat;
 use Chevere\ThrowableHandler\Formats\PlainFormat;
 use PHPUnit\Framework\TestCase;
@@ -37,7 +37,7 @@ final class ConsoleFormatTest extends TestCase
             $console = $consoleFormatter->{$methodName}(...$args);
             $this->assertSame(
                 $plain,
-                (new Str($console))->withStripANSIColors()->__toString()
+                (new ModifyString($console))->withStripANSIColors()->__toString()
             );
         }
     }
