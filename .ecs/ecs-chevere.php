@@ -80,16 +80,12 @@ use SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff;
 use SlevomatCodingStandard\Sniffs\Variables\UselessVariableSniff;
 use Symplify\CodingStandard\Fixer\Commenting\ParamReturnAndVarTagMalformsFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
-use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
-return static function (ECSConfig $containerConfigurator): void {
+return static function (ECSConfig $ecsConfig): void {
     $headerFile = __DIR__ . '/.header';
-    $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::SETS, [
-        SetList::COMMON,
-    ]);
-    $services = $containerConfigurator->services();
+    $ecsConfig->sets([SetList::COMMON]);
+    $services = $ecsConfig->services();
     if (file_exists($headerFile)) {
         $services->set(HeaderCommentFixer::class)
             ->call('configure', [[
@@ -203,10 +199,9 @@ return static function (ECSConfig $containerConfigurator): void {
                 'square_brace_block',
                 'throw',
                 'use',
-            ]
+            ],
         ]]);
-    $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::SKIP, [
+    $ecsConfig->skip([
         SingleImportPerStatementFixer::class => null,
     ]);
 };
