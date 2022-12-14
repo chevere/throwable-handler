@@ -94,7 +94,7 @@ final class TraceFormatTest extends TestCase
         );
         $expectEntries = [];
         foreach (array_keys($trace) as $pos) {
-            $expect = "#{$pos} ${file}:${line}\n${fqn}${type}${method}()";
+            $expect = "#{$pos} {$file}:{$line}\n{$fqn}{$type}{$method}()";
             $expectEntries[] = $expect;
             $this->assertSame(
                 $expect,

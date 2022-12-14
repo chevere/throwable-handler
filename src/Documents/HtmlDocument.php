@@ -36,7 +36,7 @@ final class HtmlDocument extends ThrowableHandlerDocument
     public function getTemplate(): array
     {
         $template = parent::getTemplate();
-        if (!$this->handler->isDebug()) {
+        if (! $this->handler->isDebug()) {
             $template = [
                 self::SECTION_TITLE => $template[self::SECTION_TITLE],
             ];
@@ -47,12 +47,12 @@ final class HtmlDocument extends ThrowableHandlerDocument
 
     public function getContent(string $content): string
     {
-        return "<div>${content}</div>";
+        return "<div>{$content}</div>";
     }
 
     public function getSectionTitle(): string
     {
-        if (!$this->handler->isDebug()) {
+        if (! $this->handler->isDebug()) {
             return $this->format->getWrapTitle(self::NO_DEBUG_TITLE_PLAIN) .
                 self::NO_DEBUG_CONTENT_HTML . '<p><span class="user-select-all">' .
                 self::TAG_DATE_TIME_UTC_ATOM . '</span> • <span class="user-select-all">' . self::TAG_ID . '</span></p>';

@@ -18,6 +18,6 @@ return static function (ECSConfig $containerConfigurator): void {
     $containerConfigurator->import(__DIR__ . '/ecs-chevere.php');
     $parameters = $containerConfigurator->parameters();
     $parameters->set(Option::SKIP, [
-        __DIR__ . '/vendor/*'
+        __DIR__ . '/vendor/*',
     ]);
 };

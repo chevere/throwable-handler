@@ -53,7 +53,7 @@ function handleAsConsole(Throwable $throwable): void
  */
 function handleAsHtml(Throwable $throwable): void
 {
-    if (!headers_sent()) {
+    if (! headers_sent()) {
         http_response_code(500);
     }
     writeThrowableDocument(
@@ -137,13 +137,16 @@ function shutdownErrorAsException(): void
         // dummy
     });
     restore_exception_handler();
+    if (! is_callable($handler)) {
+        return;
+    }
     $handler(
         new ErrorException(
-            message: message($error["message"]),
+            message: message($error['message']),
             code: 0,
-            severity: $error["type"],
-            filename: $error["file"],
-            lineno: $error["line"]
+            severity: $error['type'],
+            filename: $error['file'],
+            lineno: $error['line']
         )
     );
 }
