@@ -117,13 +117,14 @@ final class ThrowableRead implements ThrowableReadInterface
 
     public function previous(): Throwable
     {
+        // @phpstan-ignore-next-line
         return $this->previous;
     }
 
     private function assertSeverity(): void
     {
         $accepted = array_keys(ThrowableReadInterface::ERROR_TYPES);
-        if (!in_array($this->severity, $accepted, true)) {
+        if (! in_array($this->severity, $accepted, true)) {
             throw new RangeException(
                 message('Unknown severity value of %severity%, accepted values are: %accepted%')
                     ->withCode('%severity%', (string) $this->severity)

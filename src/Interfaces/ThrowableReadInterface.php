@@ -123,9 +123,9 @@ interface ThrowableReadInterface
     public function hasPrevious(): bool;
 
     /**
-     * Provides access to previous throwable.
+     * Provides access to previous throwable (if any).
      *
-     * @throws TypeError
+     * @throws TypeError If no previous
      */
     public function previous(): Throwable;
 }
