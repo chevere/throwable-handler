@@ -16,7 +16,7 @@ use Chevere\Throwable\Exceptions\LogicException;
 
 throw new LogicException(
     message("Don't %action% this is just a %context%.")
-        ->strong('%action%', 'panic')
-        ->code('%context%', 'drill'),
+        ->withStrong('%action%', 'panic')
+        ->withCode('%context%', 'drill'),
     previous: new RuntimeException('Oops!')
 );

@@ -27,10 +27,19 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
 
     protected FormatInterface $format;
 
+    /**
+     * @var array<string>
+     */
     protected array $sections = self::SECTIONS;
 
+    /**
+     * @var array<string, string>
+     */
     protected array $template;
 
+    /**
+     * @var array<string, string>
+     */
     protected array $tags;
 
     protected int $verbosity = 0;
@@ -42,21 +51,6 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
         $this->template = $this->getTemplate();
     }
 
-    abstract public function getFormat(): FormatInterface;
-
-    final public function withVerbosity(int $verbosity): static
-    {
-        $new = clone $this;
-        $new->verbosity = $verbosity;
-
-        return $new;
-    }
-
-    final public function verbosity(): int
-    {
-        return $this->verbosity;
-    }
-
     final public function __toString(): string
     {
         if ($this->verbosity > 0) {
@@ -64,9 +58,15 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
         }
         $throwableRead = $this->handler->throwableRead();
         $dateTimeUtc = $this->handler->dateTimeUtc();
+        $messageOut = match ($this::class) {
+            ConsoleDocument::class => 'toConsole',
+            HtmlDocument::class => 'toHtml',
+            default => '__toString',
+        };
+        // @phpstan-ignore-next-line
         $this->tags = [
             static::TAG_TITLE => $throwableRead->className() . ' thrown',
-            static::TAG_MESSAGE => $throwableRead->message(),
+            static::TAG_MESSAGE => $throwableRead->message()->{$messageOut}(),
             static::TAG_CODE_WRAP => $this->getThrowableReadCode($throwableRead),
             static::TAG_FILE_LINE => $throwableRead->file() . ':' . $throwableRead->line(),
             static::TAG_ID => $this->handler->id(),
@@ -86,8 +86,24 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
         ));
     }
 
+    abstract public function getFormat(): FormatInterface;
+
+    final public function withVerbosity(int $verbosity): static
+    {
+        $new = clone $this;
+        $new->verbosity = $verbosity;
+
+        return $new;
+    }
+
+    final public function verbosity(): int
+    {
+        return $this->verbosity;
+    }
+
     public function getTemplate(): array
     {
+        /** @var array<string, string> */
         return [
             static::SECTION_TITLE => $this->getSectionTitle(),
             static::SECTION_CHAIN => $this->getSectionChain(),
@@ -119,7 +135,7 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
 
     public function getSectionChain(): string
     {
-        if (!$this->handler->throwableRead()->hasPrevious()) {
+        if (! $this->handler->throwableRead()->hasPrevious()) {
             return '';
         }
         $throwable = $this->handler->throwableRead()->previous();

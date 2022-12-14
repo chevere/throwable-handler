@@ -139,6 +139,7 @@ interface DocumentInterface extends Stringable
      *     'self::::SECTION_TITLE' => $this->getSectionTitle(),
      * ];
      * ```
+     * @return array<string, string>
      */
     public function getTemplate(): array;
 

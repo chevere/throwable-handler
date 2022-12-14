@@ -114,6 +114,8 @@ interface ThrowableReadInterface
 
     /**
      * Provides access to the throwable trace.
+     *
+     * @return array<array<string, mixed>>
      */
     public function trace(): array;
 

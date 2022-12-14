@@ -43,7 +43,7 @@ final class ThrowableReadTest extends TestCase
         $message = message('Ups');
         $exception = new Exception($message->__toString(), $code);
         $read = new ThrowableRead($exception);
-        $this->assertSame((string) $code, $read->code());
+        $this->assertSame(strval($code), $read->code());
         $this->assertSame($exception::class, $read->className());
         $this->assertSame(ThrowableReadInterface::DEFAULT_ERROR_TYPE, $read->severity());
         $this->assertSame(ThrowableReadInterface::ERROR_LEVELS[$read->severity()], $read->loggerLevel());
@@ -61,7 +61,7 @@ final class ThrowableReadTest extends TestCase
         $exception = new ErrorException('message', 0, 1);
         $read = new ThrowableRead($exception);
         $this->assertSame($exception->getSeverity(), $read->severity());
-        $this->assertSame((string) $exception->getSeverity(), $read->code());
+        $this->assertSame(strval($exception->getSeverity()), $read->code());
     }
 
     public function testChevereException(): void

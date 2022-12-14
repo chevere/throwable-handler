@@ -39,6 +39,9 @@ final class ThrowableRead implements ThrowableReadInterface
 
     private int $line;
 
+    /**
+     * @var array<array<string, mixed>>
+     */
     private array $trace;
 
     private ?Throwable $previous;
@@ -46,11 +49,11 @@ final class ThrowableRead implements ThrowableReadInterface
     public function __construct(Throwable $throwable)
     {
         $this->className = $throwable::class;
-        $this->code = (string) $throwable->getCode();
+        $this->code = strval($throwable->getCode());
         if ($throwable instanceof ErrorException) {
             $this->severity = $throwable->getSeverity();
             if ($this->code === '0') {
-                $this->code = (string) $this->severity;
+                $this->code = strval($this->severity);
             }
         } else {
             $this->severity = ThrowableReadInterface::DEFAULT_ERROR_TYPE;
@@ -127,7 +130,7 @@ final class ThrowableRead implements ThrowableReadInterface
         if (! in_array($this->severity, $accepted, true)) {
             throw new RangeException(
                 message('Unknown severity value of %severity%, accepted values are: %accepted%')
-                    ->withCode('%severity%', (string) $this->severity)
+                    ->withCode('%severity%', strval($this->severity))
                     ->withCode('%accepted%', implode(', ', $accepted))
             );
         }

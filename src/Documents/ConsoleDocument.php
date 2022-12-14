@@ -27,7 +27,10 @@ final class ConsoleDocument extends ThrowableHandlerDocument
     public function getSectionTitle(): string
     {
         return strtr('%t in %f', [
-            '%t' => strval((new Color(self::TAG_TITLE))->bold()->red()),
+            '%t' => strval(
+                // @phpstan-ignore-next-line
+                (new Color(self::TAG_TITLE))->bold()->red()
+            ),
             '%f' => $this->format->getWrapLink(self::TAG_FILE_LINE),
         ]);
     }

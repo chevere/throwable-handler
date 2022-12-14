@@ -13,14 +13,11 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler;
 
-use function Chevere\Message\message;
-use Chevere\Throwable\Exceptions\RuntimeException;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableReadInterface;
 use DateTimeImmutable;
 use DateTimeInterface;
 use DateTimeZone;
-use Throwable;
 
 final class ThrowableHandler implements ThrowableHandlerInterface
 {
@@ -43,22 +40,10 @@ final class ThrowableHandler implements ThrowableHandlerInterface
     public function __construct(
         private ThrowableReadInterface $throwableRead
     ) {
-        try {
-            $this->dateTimeUtc = new DateTimeImmutable(
-                'now',
-                new DateTimeZone('UTC')
-            );
-        }
-        // @codeCoverageIgnoreStart
-        // @infection-ignore-all
-        catch (Throwable $e) {
-            throw new RuntimeException(
-                message('Unable to create %var%: %error%')
-                    ->withCode('%var%', 'dateTimeUtc')
-                    ->withStrtr('%error%', $e->getMessage())
-            );
-        }
-        // @codeCoverageIgnoreEnd
+        $this->dateTimeUtc = new DateTimeImmutable(
+            'now',
+            new DateTimeZone('UTC')
+        );
         $this->id = uniqid('');
     }
 

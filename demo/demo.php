@@ -41,13 +41,13 @@ try {
         $handler->withIsDebug(false)
     );
     foreach ([
-        'console.log' => (string) $console,
-        'plain.txt' => (string) $plain,
-        'html.html' => (string) $html,
-        'html-silent.html' => (string) $htmlSilent,
+        'console.log' => strval($console),
+        'plain.txt' => strval($plain),
+        'html.html' => strval($html),
+        'html-silent.html' => strval($htmlSilent),
     ] as $filename => $document) {
         $document = stripLocal($document);
-        if ($filename == 'console.log') {
+        if ($filename === 'console.log') {
             echo $document;
             echo "\n";
         }

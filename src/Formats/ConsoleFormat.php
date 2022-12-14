@@ -40,16 +40,25 @@ final class ConsoleFormat extends Format
 
     public function getHr(): string
     {
-        return (string) (new Color(str_repeat('-', 60)))->blue();
+        return strval(
+            // @phpstan-ignore-next-line
+            (new Color(str_repeat('-', 60)))->blue()
+        );
     }
 
     public function getWrapLink(string $value): string
     {
-        return (string) (new Color($value))->underline()->fg('blue');
+        return strval(
+            // @phpstan-ignore-next-line
+            (new Color($value))->underline()->fg('blue')
+        );
     }
 
     public function getWrapSectionTitle(string $value): string
     {
-        return (string) (new Color($value))->green();
+        return strval(
+            // @phpstan-ignore-next-line
+            (new Color($value))->green()
+        );
     }
 }

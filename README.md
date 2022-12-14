@@ -7,6 +7,7 @@
 [![Build](https://img.shields.io/github/workflow/status/chevere/throwable-handler/Test?style=flat-square)](https://github.com/chevere/throwable-handler/actions)
 ![Code size](https://img.shields.io/github/languages/code-size/chevere/throwable-handler?style=flat-square)
 [![Apache-2.0](https://img.shields.io/github/license/chevere/throwable-handler?style=flat-square)](LICENSE)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%209-blueviolet?style=flat-square)](https://phpstan.org/)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=chevere_throwable-handler&metric=alert_status)](https://sonarcloud.io/dashboard?id=chevere_throwable-handler)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=chevere_throwable-handler&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=chevere_throwable-handler)
