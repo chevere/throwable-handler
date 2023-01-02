@@ -4,7 +4,7 @@
 
 ![Chevere](chevere.svg)
 
-[![Build](https://img.shields.io/github/workflow/status/chevere/throwable-handler/Test?style=flat-square)](https://github.com/chevere/throwable-handler/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/chevere/throwable-handler/test.yml?branch=0.9&style=flat-square)](https://github.com/chevere/throwable-handler/actions)
 ![Code size](https://img.shields.io/github/languages/code-size/chevere/throwable-handler?style=flat-square)
 [![Apache-2.0](https://img.shields.io/github/license/chevere/throwable-handler?style=flat-square)](LICENSE)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%209-blueviolet?style=flat-square)](https://phpstan.org/)
@@ -19,6 +19,44 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cc09a56d15814ffd9066dcd19a5654c7)](https://www.codacy.com/gh/chevere/throwable-handler/dashboard)
 
 ![ThrowableHandler](.github/banner/throwable-handler-logo.svg)
+
+## Quick start
+
+Install ThrowableHandler using [Composer](https://getcomposer.org).
+
+```sh
+composer require chevere/throwable-handler
+```
+
+Register ThrowableHandler to handle all errors.
+
+```php
+use Chevere\ThrowableHandler\ThrowableHandler;
+
+set_error_handler(ThrowableHandler::ERROR_AS_EXCEPTION);
+register_shutdown_function(ThrowableHandler::SHUTDOWN_ERROR_AS_EXCEPTION);
+```
+
+Register your exception handler, you can choose:
+
+* `ThrowableHandler::PLAIN`
+* `ThrowableHandler::CONSOLE`
+* `ThrowableHandler::HTML`
+
+```php
+use Chevere\ThrowableHandler\ThrowableHandler;
+
+set_exception_handler(ThrowableHandler::PLAIN);
+```
+
+## Demo
+
+![HTML demo](demo/demo.svg)
+
+* [HTML](https://chevere.github.io/throwable-handler/demo/output/html.html)
+* [HTML (silent)](https://chevere.github.io/throwable-handler/demo/output/html-silent.html)
+* [Plain text](https://chevere.github.io/throwable-handler/demo/output/plain.txt)
+* [Console (asciinema)](https://asciinema.org/a/491732)
 
 ## Documentation
 

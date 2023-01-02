@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg data-stacking-context="true" aria-owns="html1" width="1000" height="800" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="500" y1="0" x2="500" y2="800" id="gradient-0">
+      <stop offset="0" style="stop-color: rgba(52, 152, 219, 1)"/>
+      <stop offset="1" style="stop-color: rgb(142, 68, 173);"/>
+    </linearGradient>
+  </defs>
+  <g data-stacking-layer="rootBackgroundAndBorders"/>
+  <g data-stacking-layer="childStackingContextsWithNegativeStackLevels"/>
+  <g data-stacking-layer="inFlowNonInlineNonPositionedDescendants"/>
+  <g data-stacking-layer="nonPositionedFloats"/>
+  <g data-stacking-layer="inFlowInlineLevelNonPositionedDescendants"/>
+  <g data-stacking-layer="childStackingContextsWithStackLevelZeroAndPositionedDescendantsWithStackLevelZero"/>
+  <g data-stacking-layer="childStackingContextsWithPositiveStackLevels"/>
+  <g data-tag="html" id="html1" data-z-index="auto" data-stacking-context="true" aria-owns="head1 body--flex1">
+    <g data-stacking-layer="rootBackgroundAndBorders">
+      <rect width="1000" height="800" x="0" y="0" fill="rgb(255, 255, 255)"/>
+    </g>
+    <g data-tag="head" id="head1" data-z-index="auto" data-stacking-context="true" aria-owns="meta1 meta2 style1">
+      <g data-tag="meta" id="meta1" data-z-index="auto" data-stacking-context="true"/>
+      <g data-tag="meta" id="meta2" data-z-index="auto" data-stacking-context="true"/>
+      <g data-tag="style" id="style1" data-z-index="auto" data-stacking-context="true"/>
+    </g>
+    <g data-tag="body" id="body--flex1" class="body--flex" data-z-index="auto" data-stacking-context="true" role="document" aria-owns="main--stack1">
+      <g data-stacking-layer="rootBackgroundAndBorders">
+        <rect width="1000" height="800" x="0" y="0" style="fill: url(#gradient-0);"/>
+      </g>
+      <g data-tag="main" id="main--stack1" class="main--stack" data-z-index="auto" data-stacking-context="true" role="main" aria-owns="div1">
+        <g data-tag="div" id="div1" data-z-index="auto" data-stacking-context="true" aria-owns="title1 br1 title2 div2 br2 title3 div3 br3 title4 br4 title5 div4 br5 title6 div5 br6 title7 div6">
+          <g data-stacking-layer="rootBackgroundAndBorders">
+            <rect width="900" height="679.5234375" x="50" y="60.234375" rx="2" ry="2" fill="rgb(255, 255, 255)"/>
+          </g>
+          <g data-tag="div" id="title1" class="title title--scream" data-z-index="auto" data-stacking-context="true" aria-owns="span1">
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="700" font-variant="normal" font-style="normal" font-stretch="100%" font-size="36px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="119.734375" textLength="812.203125" lengthAdjust="spacingAndGlyphs">Chevere\Throwable\Exceptions\LogicException </tspan><tspan x="70" y="162.9296875" textLength="119.9765625" lengthAdjust="spacingAndGlyphs">thrown </tspan></text>
+            <g data-tag="span" id="span1" data-z-index="auto" data-stacking-context="true" aria-owns="span2">
+              <g data-tag="span" id="span2" data-z-index="auto" data-stacking-context="true">
+                <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="24.012px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="178.21875" textLength="0" lengthAdjust="spacingAndGlyphs">
+</tspan><tspan x="70" y="207.03125" textLength="6.671875" lengthAdjust="spacingAndGlyphs"> </tspan></text>
+              </g>
+              <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="24.012px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="76.671875" y="207.03125" textLength="477.671875" lengthAdjust="spacingAndGlyphs">in /var/www/html/demo/throws/throws.php:17</tspan></text>
+            </g>
+          </g>
+          <g data-tag="br" id="br1" data-z-index="auto" data-stacking-context="true"/>
+          <g data-tag="div" id="title2" class="title" data-z-index="auto" data-stacking-context="true" aria-owns="hide1">
+            <g data-stacking-layer="inFlowNonInlineNonPositionedDescendants">
+              <g data-tag="span" id="hide1" class="hide" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="700" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="232.1328125" textLength="218.671875" lengthAdjust="spacingAndGlyphs">└ RuntimeException thrown</tspan></text>
+          </g>
+          <g data-tag="div" id="div2" data-z-index="auto" data-stacking-context="true">
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="256.328125" textLength="365.4765625" lengthAdjust="spacingAndGlyphs">Oops! in /var/www/html/demo/throws/throws.php:21</tspan></text>
+          </g>
+          <g data-tag="br" id="br2" data-z-index="auto" data-stacking-context="true"/>
+          <g data-tag="div" id="title3" class="title" data-z-index="auto" data-stacking-context="true" aria-owns="hide2">
+            <g data-stacking-layer="inFlowNonInlineNonPositionedDescendants">
+              <g data-tag="span" id="hide2" class="hide" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="700" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="294.71875" textLength="67.59375" lengthAdjust="spacingAndGlyphs">Message</tspan></text>
+          </g>
+          <g data-tag="div" id="div3" data-z-index="auto" data-stacking-context="true">
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="318.9140625" textLength="201.359375" lengthAdjust="spacingAndGlyphs">Don't panic this is just a drill.</tspan></text>
+          </g>
+          <g data-tag="br" id="br3" data-z-index="auto" data-stacking-context="true"/>
+          <g data-tag="div" id="title4" class="title" data-z-index="auto" data-stacking-context="true" aria-owns="hide3">
+            <g data-stacking-layer="inFlowNonInlineNonPositionedDescendants">
+              <g data-tag="span" id="hide3" class="hide" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="700" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="357.3046875" textLength="199.21875" lengthAdjust="spacingAndGlyphs">Incident ID:627064085e6fc</tspan></text>
+          </g>
+          <g data-tag="br" id="br4" data-z-index="auto" data-stacking-context="true"/>
+          <g data-tag="div" id="title5" class="title" data-z-index="auto" data-stacking-context="true" aria-owns="hide4">
+            <g data-stacking-layer="inFlowNonInlineNonPositionedDescendants">
+              <g data-tag="span" id="hide4" class="hide" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="700" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="400.6953125" textLength="37.0625" lengthAdjust="spacingAndGlyphs">Time</tspan></text>
+          </g>
+          <g data-tag="div" id="div4" data-z-index="auto" data-stacking-context="true">
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="424.890625" textLength="305.6015625" lengthAdjust="spacingAndGlyphs">2022-05-02T23:06:48+00:00 [1651532808]</tspan></text>
+          </g>
+          <g data-tag="br" id="br5" data-z-index="auto" data-stacking-context="true"/>
+          <g data-tag="div" id="title6" class="title" data-z-index="auto" data-stacking-context="true" aria-owns="hide5">
+            <g data-stacking-layer="inFlowNonInlineNonPositionedDescendants">
+              <g data-tag="span" id="hide5" class="hide" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="700" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="463.28125" textLength="85.390625" lengthAdjust="spacingAndGlyphs">Stack trace</tspan></text>
+          </g>
+          <g data-tag="div" id="div5" data-z-index="auto" data-stacking-context="true" aria-owns="hr1 pre1 hr2 pre2 hr3 pre3 hr4">
+            <g data-tag="div" id="hr1" class="hr" data-z-index="auto" data-stacking-context="true" aria-owns="span3">
+              <g data-tag="span" id="span3" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <g data-tag="div" id="pre1" class="pre pre--stack-entry " data-z-index="auto" data-stacking-context="true" mask="url(#mask-for-pre11)" aria-owns="span4 span5 span6 span7">
+              <g data-stacking-layer="rootBackgroundAndBorders">
+                <rect width="860" height="56" x="70" y="469.9765625" fill="rgb(43, 61, 79)"/>
+              </g>
+              <mask id="mask-for-pre11">
+                <rect width="860" height="56" x="70" y="469.9765625" fill="#ffffff"/>
+              </mask>
+              <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(236, 240, 241)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(236, 240, 241)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(236, 240, 241)"><tspan x="80" y="497.9765625" textLength="26.5859375" lengthAdjust="spacingAndGlyphs">#0 </tspan></text>
+              <g data-tag="span" id="span4" data-z-index="auto" data-stacking-context="true">
+                <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(135, 175, 255)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(135, 175, 255)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(135, 175, 255)"><tspan x="106.5859375" y="497.9765625" textLength="345.5703125" lengthAdjust="spacingAndGlyphs">/var/www/html/demo/throws/throws.php:17</tspan></text>
+              </g>
+              <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(236, 240, 241)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(236, 240, 241)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(236, 240, 241)"><tspan x="452.15625" y="497.9765625" textLength="0" lengthAdjust="spacingAndGlyphs">
+</tspan></text>
+              <g data-tag="span" id="span5" data-z-index="auto" data-stacking-context="true"/>
+              <g data-tag="span" id="span6" data-z-index="auto" data-stacking-context="true"/>
+              <g data-tag="span" id="span7" data-z-index="auto" data-stacking-context="true">
+                <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 175, 255)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(0, 175, 255)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 175, 255)"><tspan x="80" y="515.9765625" textLength="70.890625" lengthAdjust="spacingAndGlyphs">{main}()</tspan></text>
+              </g>
+            </g>
+            <g data-tag="div" id="hr2" class="hr" data-z-index="auto" data-stacking-context="true" aria-owns="span8">
+              <g data-tag="span" id="span8" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <g data-tag="div" id="pre2" class="pre pre--stack-entry entry--even" data-z-index="auto" data-stacking-context="true" mask="url(#mask-for-pre21)" aria-owns="span9 span10 span11 span12">
+              <g data-stacking-layer="rootBackgroundAndBorders">
+                <rect width="860" height="56" x="70" y="525.9765625" fill="rgb(53, 74, 95)"/>
+              </g>
+              <mask id="mask-for-pre21">
+                <rect width="860" height="56" x="70" y="525.9765625" fill="#ffffff"/>
+              </mask>
+              <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(236, 240, 241)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(236, 240, 241)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(236, 240, 241)"><tspan x="80" y="553.9765625" textLength="26.5859375" lengthAdjust="spacingAndGlyphs">#1 </tspan></text>
+              <g data-tag="span" id="span9" data-z-index="auto" data-stacking-context="true">
+                <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(135, 175, 255)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(135, 175, 255)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(135, 175, 255)"><tspan x="106.5859375" y="553.9765625" textLength="354.4296875" lengthAdjust="spacingAndGlyphs">/var/www/html/demo/throws/runtime.php:14</tspan></text>
+              </g>
+              <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(236, 240, 241)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(236, 240, 241)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(236, 240, 241)"><tspan x="461.015625" y="553.9765625" textLength="0" lengthAdjust="spacingAndGlyphs">
+</tspan></text>
+              <g data-tag="span" id="span10" data-z-index="auto" data-stacking-context="true"/>
+              <g data-tag="span" id="span11" data-z-index="auto" data-stacking-context="true"/>
+              <g data-tag="span" id="span12" data-z-index="auto" data-stacking-context="true">
+                <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 175, 255)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(0, 175, 255)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 175, 255)"><tspan x="80" y="571.9765625" textLength="79.75" lengthAdjust="spacingAndGlyphs">require()</tspan></text>
+              </g>
+            </g>
+            <g data-tag="div" id="hr3" class="hr" data-z-index="auto" data-stacking-context="true" aria-owns="span13">
+              <g data-tag="span" id="span13" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <g data-tag="div" id="pre3" class="pre pre--stack-entry " data-z-index="auto" data-stacking-context="true" mask="url(#mask-for-pre31)" aria-owns="span14 span15 span16 span17">
+              <g data-stacking-layer="rootBackgroundAndBorders">
+                <rect width="860" height="56" x="70" y="581.9765625" fill="rgb(43, 61, 79)"/>
+              </g>
+              <mask id="mask-for-pre31">
+                <rect width="860" height="56" x="70" y="581.9765625" fill="#ffffff"/>
+              </mask>
+              <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(236, 240, 241)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(236, 240, 241)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(236, 240, 241)"><tspan x="80" y="609.9765625" textLength="26.5859375" lengthAdjust="spacingAndGlyphs">#2 </tspan></text>
+              <g data-tag="span" id="span14" data-z-index="auto" data-stacking-context="true">
+                <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(135, 175, 255)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(135, 175, 255)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(135, 175, 255)"><tspan x="106.5859375" y="609.9765625" textLength="265.8203125" lengthAdjust="spacingAndGlyphs">/var/www/html/demo/demo.php:32</tspan></text>
+              </g>
+              <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(236, 240, 241)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(236, 240, 241)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(236, 240, 241)"><tspan x="372.40625" y="609.9765625" textLength="0" lengthAdjust="spacingAndGlyphs">
+</tspan></text>
+              <g data-tag="span" id="span15" data-z-index="auto" data-stacking-context="true"/>
+              <g data-tag="span" id="span16" data-z-index="auto" data-stacking-context="true"/>
+              <g data-tag="span" id="span17" data-z-index="auto" data-stacking-context="true">
+                <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 175, 255)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="14.4px" font-family="&quot;Fira Code Retina&quot;, &quot;Operator Mono&quot;, Inconsolata, Consolas, monospace, sans-serif" fill="rgb(0, 175, 255)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 175, 255)"><tspan x="80" y="627.9765625" textLength="230.3828125" lengthAdjust="spacingAndGlyphs">require(string(length=68))</tspan></text>
+              </g>
+            </g>
+            <g data-tag="div" id="hr4" class="hr" data-z-index="auto" data-stacking-context="true" aria-owns="span18">
+              <g data-tag="span" id="span18" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+          </g>
+          <g data-tag="br" id="br6" data-z-index="auto" data-stacking-context="true"/>
+          <g data-tag="div" id="title7" class="title" data-z-index="auto" data-stacking-context="true" aria-owns="hide6">
+            <g data-stacking-layer="inFlowNonInlineNonPositionedDescendants">
+              <g data-tag="span" id="hide6" class="hide" data-z-index="auto" data-stacking-context="true" opacity="0"/>
+            </g>
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="700" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="674.671875" textLength="49.8203125" lengthAdjust="spacingAndGlyphs">Server</tspan></text>
+          </g>
+          <g data-tag="div" id="div6" data-z-index="auto" data-stacking-context="true">
+            <text user-select="auto" style="white-space: pre;" writing-mode="horizontal-tb" word-spacing="0px" unicode-bidi="normal" text-rendering="auto" text-decoration="none solid rgb(0, 0, 0)" text-anchor="start" letter-spacing="normal" font-weight="400" font-variant="normal" font-style="normal" font-stretch="100%" font-size="16px" font-family="Helvetica, Arial, sans-serif" fill="rgb(0, 0, 0)" dominant-baseline="text-after-edge" direction="ltr" color="rgb(0, 0, 0)"><tspan x="70" y="698.8671875" textLength="743.1953125" lengthAdjust="spacingAndGlyphs">Darwin rodolfo-mac.Home 21.4.0 Darwin Kernel Version 21.4.0: Fri Mar 18 00:47:26 PDT 2022; root:xnu-</tspan><tspan x="70" y="718.0625" textLength="351.7890625" lengthAdjust="spacingAndGlyphs">8020.101.4~15/RELEASE_ARM64_T8101 arm64</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
