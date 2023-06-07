@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Chevere\Tests\ThrowableHandler;
+namespace Chevere\Tests;
 
 use Chevere\ThrowableHandler\Formats\PlainFormat;
 use Chevere\Trace\Trace;

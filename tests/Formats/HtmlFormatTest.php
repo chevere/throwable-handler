@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Chevere\Tests\ThrowableHandler\Formats;
+namespace Chevere\Tests\Formats;
 
 use Chevere\ThrowableHandler\Formats\HtmlFormat;
 use Chevere\ThrowableHandler\Formats\PlainFormat;
@@ -45,35 +45,35 @@ final class HtmlFormatTest extends TestCase
         $array = [
             'getItemTemplate' => [
                 [],
-                '<div class="pre pre--stack-entry %cssEvenClass%">#%pos% %fileLine%' . "\n" . '%class%%type%%function%</div>'
+                '<div class="pre pre--stack-entry %cssEvenClass%">#%pos% %fileLine%' . "\n" . '%class%%type%%function%</div>',
             ],
             'getHr' => [
                 [],
-                '<div class="hr"><span>' . str_repeat('-', 60) . '</span></div>'
+                '<div class="hr"><span>' . str_repeat('-', 60) . '</span></div>',
             ],
             'getLineBreak' => [
                 [],
-                "\n<br>\n"
+                "\n<br>\n",
             ],
             'getWrapLink' => [
                 ['value'],
-                'value'
+                'value',
             ],
             'getWrapHidden' => [
                 ['value'],
-                '<span class="hide">value</span>'
+                '<span class="hide">value</span>',
             ],
             'getWrapSectionTitle' => [
                 ['value'],
-                '<div class="title">value</div>'
+                '<div class="title">value</div>',
             ],
             'getWrapSectionTitle' => [
                 ['# value'],
-                '<div class="title"><span class="hide">#&nbsp;</span>value</div>'
+                '<div class="title"><span class="hide">#&nbsp;</span>value</div>',
             ],
             'getWrapTitle' => [
                 ['value'],
-                '<div class="title title--scream">value</div>'
+                '<div class="title title--scream">value</div>',
             ],
         ];
         foreach ($array as $methodName => $aux) {

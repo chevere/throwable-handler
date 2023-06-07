@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Chevere\Tests\ThrowableHandler\Formats;
+namespace Chevere\Tests\Formats;
 
 use Chevere\String\StringModify;
 use Chevere\ThrowableHandler\Formats\ConsoleFormat;

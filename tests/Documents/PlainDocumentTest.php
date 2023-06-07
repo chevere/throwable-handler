@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Chevere\Tests\ThrowableHandler\Documents;
+namespace Chevere\Tests\Documents;
 
 use Chevere\ThrowableHandler\Documents\PlainDocument;
 use Chevere\ThrowableHandler\Formats\PlainFormat;
