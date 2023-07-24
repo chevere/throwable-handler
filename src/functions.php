@@ -23,7 +23,7 @@ use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\Writer\Interfaces\WriterInterface;
 use function Chevere\Writer\streamFor;
 use Chevere\Writer\StreamWriter;
-use Chevere\Writer\WritersInstance;
+use function Chevere\Writer\writers;
 use Throwable;
 
 // @codeCoverageIgnoreStart
@@ -33,9 +33,10 @@ use Throwable;
  */
 function handleAsPlain(Throwable $throwable): void
 {
-    writeThrowableDocument(
+    writeThrowable(
         plainDocument($throwable)
     );
+    die(255);
 }
 
 /**
@@ -43,7 +44,18 @@ function handleAsPlain(Throwable $throwable): void
  */
 function handleAsConsole(Throwable $throwable): void
 {
-    writeThrowableDocument(
+    writeThrowable(
+        consoleDocument($throwable)
+    );
+    die(255);
+}
+
+/**
+ * Handle throwables as terminal.
+ */
+function handleAsTerminal(Throwable $throwable): void
+{
+    writeThrowable(
         consoleDocument($throwable)
     );
 }
@@ -56,9 +68,10 @@ function handleAsHtml(Throwable $throwable): void
     if (! headers_sent()) {
         http_response_code(500);
     }
-    writeThrowableDocument(
+    writeThrowable(
         htmlDocument($throwable)
     );
+    die(255);
 }
 
 /**
@@ -99,21 +112,16 @@ function throwableHandler(Throwable $throwable): ThrowableHandlerInterface
     return new ThrowableHandler(new ThrowableRead($throwable));
 }
 
-/**
- * Write a throwable document.
- */
-function writeThrowableDocument(
+function writeThrowable(
     DocumentInterface $document,
-    ?WriterInterface $writer = null
+    ?WriterInterface $writer = null,
 ): void {
     try {
-        $writer = $writer ?? WritersInstance::get()->error();
-    } catch (Throwable $e) {
+        $writer = $writer ?? writers()->error();
+    } catch (Throwable) {
         $writer = new StreamWriter(streamFor('php://stderr', 'w'));
     }
     $writer->write($document->__toString() . "\n");
-
-    die(255);
 }
 
 /**
