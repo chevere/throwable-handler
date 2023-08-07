@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler;
 
-use function Chevere\Message\message;
 use Chevere\Throwable\Exceptions\ErrorException;
 use Chevere\ThrowableHandler\Documents\ConsoleDocument;
 use Chevere\ThrowableHandler\Documents\HtmlDocument;
@@ -21,10 +20,11 @@ use Chevere\ThrowableHandler\Documents\PlainDocument;
 use Chevere\ThrowableHandler\Interfaces\DocumentInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\Writer\Interfaces\WriterInterface;
-use function Chevere\Writer\streamFor;
 use Chevere\Writer\StreamWriter;
-use function Chevere\Writer\writers;
 use Throwable;
+use function Chevere\Message\message;
+use function Chevere\Writer\streamFor;
+use function Chevere\Writer\writers;
 
 // @codeCoverageIgnoreStart
 
@@ -36,7 +36,7 @@ function handleAsPlain(Throwable $throwable): void
     writeThrowable(
         plainDocument($throwable)
     );
-    die(255);
+    exit(255);
 }
 
 /**
@@ -47,7 +47,7 @@ function handleAsConsole(Throwable $throwable): void
     writeThrowable(
         consoleDocument($throwable)
     );
-    die(255);
+    exit(255);
 }
 
 /**
@@ -71,7 +71,7 @@ function handleAsHtml(Throwable $throwable): void
     writeThrowable(
         htmlDocument($throwable)
     );
-    die(255);
+    exit(255);
 }
 
 /**

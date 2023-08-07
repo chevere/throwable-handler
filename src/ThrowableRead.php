@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler;
 
 use Chevere\Message\Interfaces\MessageInterface;
-use function Chevere\Message\message;
 use Chevere\Throwable\Exceptions\RangeException;
 use Chevere\Throwable\Interfaces\ThrowableInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableReadInterface;
 use ErrorException;
 use Throwable;
+use function Chevere\Message\message;
 
 final class ThrowableRead implements ThrowableReadInterface
 {
