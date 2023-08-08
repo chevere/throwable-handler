@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Chevere\ThrowableHandler\Interfaces;
 
 use Chevere\Message\Interfaces\MessageInterface;
-use Chevere\Throwable\Exceptions\RangeException;
 use Throwable;
 use TypeError;
 
@@ -67,10 +66,7 @@ interface ThrowableReadInterface
         E_USER_DEPRECATED => 'notice',
     ];
 
-    /**
-     * @throws RangeException If unable to read `$throwable`
-     */
-    public function __construct(Throwable $throwable);
+    public function throwable(): Throwable;
 
     /**
      * Provides access to the throwable class name.

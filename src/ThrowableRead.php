@@ -46,8 +46,9 @@ final class ThrowableRead implements ThrowableReadInterface
 
     private ?Throwable $previous;
 
-    public function __construct(Throwable $throwable)
-    {
+    public function __construct(
+        private Throwable $throwable
+    ) {
         $this->className = $throwable::class;
         $this->code = strval($throwable->getCode());
         if ($throwable instanceof ErrorException) {
@@ -66,6 +67,11 @@ final class ThrowableRead implements ThrowableReadInterface
         $this->line = $throwable->getLine();
         $this->setTrace($throwable);
         $this->previous = $throwable->getPrevious();
+    }
+
+    public function throwable(): Throwable
+    {
+        return $this->throwable;
     }
 
     public function className(): string
