@@ -51,7 +51,7 @@ final class HtmlDocumentTest extends TestCase
         $plainDocument = new PlainDocument($this->exceptionHandler);
         $this->assertTrue(strlen($sectionTitle) > $plainDocument->getSectionTitle());
         $string = $document->__toString();
-        $this->assertStringContainsString('<html><head><meta charset="utf-8">', $string);
+        $this->assertStringContainsString('<meta charset="utf-8">', $string);
         $this->assertStringContainsString('<main class="main--stack">', $string);
     }
 
@@ -64,7 +64,7 @@ final class HtmlDocumentTest extends TestCase
         $plainDocument = new PlainDocument($this->exceptionHandler);
         $this->assertTrue(strlen($sectionTitle) > $plainDocument->getSectionTitle());
         $string = $document->__toString();
-        $this->assertStringContainsString('<html><head><meta charset="utf-8">', $string);
+        $this->assertStringContainsString('<meta charset="utf-8">', $string);
         $this->assertStringContainsString('Something went wrong', $string);
         $this->assertStringContainsString('Please try again later.', $string);
         $this->assertStringContainsString('<main class="user-select-none"><div>', $string);

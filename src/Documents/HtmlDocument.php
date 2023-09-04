@@ -20,13 +20,28 @@ final class HtmlDocument extends ThrowableHandlerDocument
 {
     public const NO_DEBUG_TITLE_PLAIN = 'Something went wrong';
 
-    public const NO_DEBUG_CONTENT_HTML = '<p>Please try again later. If the problem persist don\'t hesitate to contact the system administrator.</p>';
+    public const NO_DEBUG_CONTENT_HTML = <<<HTML
+    <p>Please try again later. If the problem persist don't hesitate to contact the system administrator.</p>
+    HTML;
 
-    public const HTML_TEMPLATE = '<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>%css%</style></head><body class="%bodyClass%">%body%</body></html>';
+    public const HTML_TEMPLATE = <<<HTML
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>%css%</style>
+    </head>
+    <body class="%bodyClass%">%body%</body>
+    </html>
+    HTML;
 
-    public const NO_DEBUG_BODY_HTML = '<main class="user-select-none"><div>%content%</div></main>';
+    public const NO_DEBUG_BODY_HTML = <<<HTML
+    <main class="user-select-none"><div>%content%</div></main>
+    HTML;
 
-    public const DEBUG_BODY_HTML = '<main class="main--stack"><div>%content%</div></main>';
+    public const DEBUG_BODY_HTML = <<<HTML
+    <main class="main--stack"><div>%content%</div></main>
+    HTML;
 
     public function getFormat(): FormatInterface
     {
