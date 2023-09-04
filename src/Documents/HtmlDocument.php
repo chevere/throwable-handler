@@ -68,13 +68,20 @@ final class HtmlDocument extends ThrowableHandlerDocument
     public function getSectionTitle(): string
     {
         if (! $this->handler->isDebug()) {
-            return $this->format->getWrapTitle(self::NO_DEBUG_TITLE_PLAIN) .
-                self::NO_DEBUG_CONTENT_HTML . '<p><span class="user-select-all">' .
-                self::TAG_DATE_TIME_UTC_ATOM . '</span> • <span class="user-select-all">' . self::TAG_ID . '</span></p>';
+            return $this->format->getWrapTitle(self::NO_DEBUG_TITLE_PLAIN)
+                . self::NO_DEBUG_CONTENT_HTML
+                . '<p><span class="user-select-all">'
+                . self::TAG_DATE_TIME_UTC_ATOM
+                . '</span> • <span class="user-select-all">'
+                . self::TAG_ID
+                . '</span></p>';
         }
 
         return $this->format->getWrapTitle(
-            self::TAG_TITLE . ' <span>in&nbsp;' . self::TAG_FILE_LINE . '</span>'
+            self::TAG_TITLE
+            . ' <span>in&nbsp;'
+            . self::TAG_FILE_LINE
+            . '</span>'
         );
     }
 
@@ -83,7 +90,9 @@ final class HtmlDocument extends ThrowableHandlerDocument
         $preDocument = strtr(self::HTML_TEMPLATE, [
             '%bodyClass%' => 'body--flex',
             '%css%' => file_get_contents(dirname(__DIR__) . '/src/template.css'),
-            '%body%' => $this->handler->isDebug() ? self::DEBUG_BODY_HTML : self::NO_DEBUG_BODY_HTML,
+            '%body%' => $this->handler->isDebug()
+                ? self::DEBUG_BODY_HTML
+                : self::NO_DEBUG_BODY_HTML,
         ]);
 
         return str_replace('%content%', $document, $preDocument);
