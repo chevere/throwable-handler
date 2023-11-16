@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace Chevere\Tests;
 
-use function Chevere\Message\message;
-use Chevere\Throwable\Exceptions\LogicException;
 use Chevere\ThrowableHandler\Interfaces\ThrowableReadInterface;
 use Chevere\ThrowableHandler\ThrowableRead;
 use ErrorException;
 use Exception;
+use LogicException;
 use PHPUnit\Framework\TestCase;
+use function Chevere\Message\message;
 
 final class ThrowableReadTest extends TestCase
 {
@@ -53,7 +53,7 @@ final class ThrowableReadTest extends TestCase
         $readTrace = $read->trace();
         array_shift($readTrace);
         $this->assertSame($exception->getTrace(), $readTrace);
-        $this->assertSame($message->__toString(), $read->message()->__toString());
+        $this->assertSame($message->__toString(), $read->message());
     }
 
     public function testErrorException(): void
@@ -66,7 +66,7 @@ final class ThrowableReadTest extends TestCase
 
     public function testChevereException(): void
     {
-        $message = message('Ups');
+        $message = 'Ups';
         $exception = new LogicException($message);
         $read = new ThrowableRead($exception);
         $this->assertSame($message, $read->message());

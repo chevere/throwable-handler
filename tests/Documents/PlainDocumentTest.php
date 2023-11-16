@@ -23,16 +23,17 @@ use PHPUnit\Framework\TestCase;
 
 final class PlainDocumentTest extends TestCase
 {
-    public function testConstruct(): void
+    public function testVerbosity(): void
     {
-        $document = new PlainDocument(
-            new ThrowableHandler(new ThrowableRead(
-                new LogicException(
-                    'Ups',
-                    1000,
-                )
-            ))
-        );
+        $code = 1000;
+        $message = 'Ups';
+        $id = 'TEST_ID';
+        $exception = new LogicException($message, $code);
+        $fileLine = __FILE__ . ':' . (__LINE__ - 1);
+        $read = new ThrowableRead($exception);
+        $handler = new ThrowableHandler($read);
+        $handler = $handler->withId($id);
+        $document = new PlainDocument($handler);
         $verbosity = 0;
         $this->assertInstanceOf(PlainFormat::class, $document->getFormat());
         $this->assertSame($verbosity, $document->verbosity());
@@ -40,8 +41,17 @@ final class PlainDocumentTest extends TestCase
         $document = $document->withVerbosity($verbosity);
         $this->assertSame($verbosity, $document->verbosity());
         $getTemplate = $document->getTemplate();
-        $this->assertIsArray($getTemplate);
         $this->assertSame(DocumentInterface::SECTIONS, array_keys($getTemplate));
-        $document->__toString();
+        $this->assertSame(
+            <<<PLAIN
+            LogicException thrown in {$fileLine}
+
+            # Message [Code #{$code}]
+            {$message}
+
+            # Incident ID:{$id}
+            PLAIN,
+            $document->__toString()
+        );
     }
 }

@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Chevere\Tests;
 
-use Chevere\Throwable\Exceptions\ErrorException;
+use Chevere\ThrowableHandler\ThrowableHandler;
+use ErrorException;
+use PHPUnit\Framework\TestCase;
 use function Chevere\ThrowableHandler\errorAsException;
 use function Chevere\ThrowableHandler\shutdownErrorAsException;
-use Chevere\ThrowableHandler\ThrowableHandler;
-use PHPUnit\Framework\TestCase;
 
 final class FunctionsTest extends TestCase
 {

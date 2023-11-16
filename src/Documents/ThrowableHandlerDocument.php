@@ -58,15 +58,10 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
         }
         $throwableRead = $this->handler->throwableRead();
         $dateTimeUtc = $this->handler->dateTimeUtc();
-        $messageOut = match ($this::class) {
-            ConsoleDocument::class => 'toConsole',
-            HtmlDocument::class => 'toHtml',
-            default => '__toString',
-        };
         // @phpstan-ignore-next-line
         $this->tags = [
             static::TAG_TITLE => $throwableRead->className() . ' thrown',
-            static::TAG_MESSAGE => $throwableRead->message()->{$messageOut}(),
+            static::TAG_MESSAGE => $throwableRead->message(),
             static::TAG_CODE_WRAP => $this->getThrowableReadCode($throwableRead),
             static::TAG_FILE_LINE => $throwableRead->file() . ':' . $throwableRead->line(),
             static::TAG_ID => $this->handler->id(),

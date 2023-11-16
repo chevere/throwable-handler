@@ -55,6 +55,14 @@ final class ThrowableHandler implements ThrowableHandlerInterface
         return $new;
     }
 
+    public function withId(string $id): ThrowableHandlerInterface
+    {
+        $new = clone $this;
+        $new->id = $id;
+
+        return $new;
+    }
+
     public function isDebug(): bool
     {
         return $this->isDebug;

@@ -24,6 +24,8 @@ interface ThrowableHandlerInterface
 
     public function withIsDebug(bool $isDebug): self;
 
+    public function withId(string $id): self;
+
     public function isDebug(): bool;
 
     public function dateTimeUtc(): DateTimeInterface;

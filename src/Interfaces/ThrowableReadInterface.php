@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler\Interfaces;
 
-use Chevere\Message\Interfaces\MessageInterface;
 use Throwable;
 use TypeError;
 
@@ -96,7 +95,7 @@ interface ThrowableReadInterface
     /**
      * Provides access to the throwable message.
      */
-    public function message(): MessageInterface;
+    public function message(): string;
 
     /**
      * Provides access to the throwable file.

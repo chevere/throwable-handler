@@ -13,12 +13,11 @@ declare(strict_types=1);
 
 namespace Chevere\Tests;
 
-use function Chevere\Message\message;
-use Chevere\Throwable\Exceptions\LogicException;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\ThrowableHandler\ThrowableHandler;
 use Chevere\ThrowableHandler\ThrowableRead;
 use DateTimeInterface;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 
 final class ThrowableHandlerTest extends TestCase
@@ -47,7 +46,7 @@ final class ThrowableHandlerTest extends TestCase
         return
             new ThrowableHandler(
                 new ThrowableRead(
-                    new LogicException(message('Ups'), 100)
+                    new LogicException('Ups', 100)
                 )
             );
     }

@@ -1,15 +1,15 @@
-[31m[1mChevere\Throwable\Exceptions\LogicException thrown[0m[0m in [34m[4m/var/www/html/throws/throws.php:17[0m[0m
+[31m[1mLogicException thrown[0m[0m in [34m[4m/var/www/html/throws/throws.php:17[0m[0m
 
 [32m# └ RuntimeException thrown 
-[0mOops! in [34m[4m/var/www/html/throws/throws.php:21[0m[0m
+[0mOops! in [34m[4m/var/www/html/throws/throws.php:23[0m[0m
 
 [32m# Message [0m
-Don't [1mpanic[0m this is just a [7mdrill[0m.
+Don't **panic** this is just a `drill`.
 
-[32m# Incident ID:6399fb4a64dd0[0m
+[32m# Incident ID:6556a38a39b0d[0m
 
 [32m# Time[0m
-2022-12-14T16:35:22+00:00 [1671035722]
+2023-11-16T23:19:38+00:00 [1700176778]
 
 [32m# Stack trace[0m
 [34m------------------------------------------------------------[0m
@@ -24,4 +24,4 @@ Don't [1mpanic[0m this is just a [7mdrill[0m.
 [34m------------------------------------------------------------[0m
 
 [32m# Server[0m
-Darwin rodolfo-mac.Home 22.1.0 Darwin Kernel Version 22.1.0: Sun Oct  9 20:14:30 PDT 2022; root:xnu-8792.41.9~2/RELEASE_ARM64_T8103 arm64
+Darwin rodolfo-mba.local 23.1.0 Darwin Kernel Version 23.1.0: Mon Oct  9 21:28:31 PDT 2023; root:xnu-10002.41.9~6/RELEASE_ARM64_T8112 arm64

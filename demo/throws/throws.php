@@ -11,12 +11,14 @@
 
 declare(strict_types=1);
 
+use LogicException;
 use function Chevere\Message\message;
-use Chevere\Throwable\Exceptions\LogicException;
 
 throw new LogicException(
-    message("Don't %action% this is just a %context%.")
-        ->withStrong('%action%', 'panic')
-        ->withCode('%context%', 'drill'),
+    (string) message(
+        "Don't **%action%** this is just a `%context%`.",
+        action: 'panic',
+        context: 'drill'
+    ),
     previous: new RuntimeException('Oops!')
 );

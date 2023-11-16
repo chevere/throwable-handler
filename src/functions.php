@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Chevere\ThrowableHandler;
 
-use Chevere\Throwable\Exceptions\ErrorException;
 use Chevere\ThrowableHandler\Documents\ConsoleDocument;
 use Chevere\ThrowableHandler\Documents\HtmlDocument;
 use Chevere\ThrowableHandler\Documents\PlainDocument;
@@ -21,8 +20,8 @@ use Chevere\ThrowableHandler\Interfaces\DocumentInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
 use Chevere\Writer\Interfaces\WriterInterface;
 use Chevere\Writer\StreamWriter;
+use ErrorException;
 use Throwable;
-use function Chevere\Message\message;
 use function Chevere\Writer\streamFor;
 use function Chevere\Writer\writers;
 
@@ -129,7 +128,7 @@ function writeThrowable(
  */
 function errorAsException(int $severity, string $message, string $file, int $line): void
 {
-    throw new ErrorException(message($message), 0, $severity, $file, $line);
+    throw new ErrorException($message, 0, $severity, $file, $line);
 }
 
 /**
@@ -150,11 +149,11 @@ function shutdownErrorAsException(): void
     }
     $handler(
         new ErrorException(
-            message: message($error['message']),
+            message: $error['message'],
             code: 0,
             severity: $error['type'],
             filename: $error['file'],
-            lineno: $error['line']
+            // lineno: $error['line']
         )
     );
 }
