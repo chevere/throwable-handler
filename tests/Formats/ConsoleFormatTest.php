@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Chevere\Tests\Formats;
 
-use Chevere\String\StringModify;
 use Chevere\ThrowableHandler\Formats\ConsoleFormat;
 use Chevere\ThrowableHandler\Formats\PlainFormat;
 use PHPUnit\Framework\TestCase;
@@ -37,7 +36,7 @@ final class ConsoleFormatTest extends TestCase
             $console = $consoleFormatter->{$methodName}(...$args);
             $this->assertSame(
                 $plain,
-                (new StringModify($console))->withStripANSIColors()->__toString()
+                preg_replace('#\\x1b[[][^A-Za-z]*[A-Za-z]#', '', $console) ?? ''
             );
         }
     }

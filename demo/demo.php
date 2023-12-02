@@ -11,7 +11,6 @@
 
 declare(strict_types=1);
 
-use function Chevere\Filesystem\fileForPath;
 use Chevere\ThrowableHandler\Documents\ConsoleDocument;
 use Chevere\ThrowableHandler\Documents\HtmlDocument;
 use Chevere\ThrowableHandler\Documents\PlainDocument;
@@ -51,9 +50,6 @@ try {
             echo $document;
             echo "\n";
         }
-        $file = fileForPath(__DIR__ . '/output/' . $filename);
-        $file->createIfNotExists();
-        $file->put($document);
-        $path = $file->path()->__toString();
+        file_put_contents(__DIR__ . '/output/' . $filename, $document);
     }
 }

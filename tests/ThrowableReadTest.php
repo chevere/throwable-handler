@@ -19,7 +19,6 @@ use ErrorException;
 use Exception;
 use LogicException;
 use PHPUnit\Framework\TestCase;
-use function Chevere\Message\message;
 
 final class ThrowableReadTest extends TestCase
 {
@@ -40,8 +39,8 @@ final class ThrowableReadTest extends TestCase
     public function testPhpException(): void
     {
         $code = 100;
-        $message = message('Ups');
-        $exception = new Exception($message->__toString(), $code);
+        $message = 'Ups';
+        $exception = new Exception($message, $code);
         $read = new ThrowableRead($exception);
         $this->assertSame(strval($code), $read->code());
         $this->assertSame($exception::class, $read->className());
@@ -53,7 +52,7 @@ final class ThrowableReadTest extends TestCase
         $readTrace = $read->trace();
         array_shift($readTrace);
         $this->assertSame($exception->getTrace(), $readTrace);
-        $this->assertSame($message->__toString(), $read->message());
+        $this->assertSame($message, $read->message());
     }
 
     public function testErrorException(): void
