@@ -41,6 +41,18 @@ final class ThrowableHandlerTest extends TestCase
         );
     }
 
+    public function testWithId(): void
+    {
+        $handler = $this->getExceptionHandler();
+        $id = 'the-id';
+        $handlerWithId = $handler->withId($id);
+        $this->assertNotSame($handler, $handlerWithId);
+        $this->assertSame(
+            $id,
+            $handlerWithId->id()
+        );
+    }
+
     private function getExceptionHandler(): ThrowableHandlerInterface
     {
         return
