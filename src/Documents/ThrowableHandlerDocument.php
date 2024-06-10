@@ -106,7 +106,6 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
             static::SECTION_TIME => $this->getSectionTime(),
             static::SECTION_ID => $this->getSectionId(),
             static::SECTION_STACK => $this->getSectionStack(),
-            static::SECTION_SERVER => $this->getSectionServer(),
         ];
     }
 
@@ -162,8 +161,9 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
 
     public function getSectionTime(): string
     {
-        return $this->format->getWrapSectionTitle('# Time') . "\n" .
-            $this->getContent(
+        return $this->format->getWrapSectionTitle('# Time')
+            . "\n"
+            . $this->getContent(
                 static::TAG_DATE_TIME_UTC_ATOM .
                 ' [' . static::TAG_TIMESTAMP . ']'
             );
@@ -173,12 +173,6 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
     {
         return $this->format->getWrapSectionTitle('# Stack trace') . "\n" .
             $this->getContent(static::TAG_STACK);
-    }
-
-    public function getSectionServer(): string
-    {
-        return $this->format->getWrapSectionTitle('# Server') . "\n" .
-            $this->getContent(static::TAG_PHP_UNAME);
     }
 
     protected function prepare(string $document): string

@@ -33,4 +33,21 @@ interface ThrowableHandlerInterface
     public function throwableRead(): ThrowableReadInterface;
 
     public function id(): string;
+
+    /**
+     * Return an instance with the specified extra data.
+     *
+     * This method MUST retain the state of the current instance, and return
+     * an instance that contains the specified extra data.
+     *
+     * @param array<string, string> $data
+     */
+    public function withExtra(array $data): self;
+
+    /**
+     * Extra throwable data to display.
+     *
+     * @return array<string, string>
+     */
+    public function extra(): array;
 }

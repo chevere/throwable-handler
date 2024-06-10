@@ -30,9 +30,9 @@ interface DocumentInterface extends Stringable
 
     public const SECTION_TIME = 'time';
 
-    public const SECTION_STACK = 'stack';
+    public const SECTION_EXTRA = 'extra';
 
-    public const SECTION_SERVER = 'server';
+    public const SECTION_STACK = 'stack';
 
     public const TAG_TITLE = '%title%';
 
@@ -61,7 +61,6 @@ interface DocumentInterface extends Stringable
         self::SECTION_TIME,
         self::SECTION_ID,
         self::SECTION_STACK,
-        self::SECTION_SERVER,
     ];
 
     public const SECTIONS_VERBOSITY = [
@@ -71,7 +70,6 @@ interface DocumentInterface extends Stringable
         self::SECTION_ID => 16,
         self::SECTION_TIME => 64,
         self::SECTION_STACK => 128,
-        self::SECTION_SERVER => 64,
     ];
 
     public function __construct(ThrowableHandlerInterface $throwableHandler);
@@ -120,11 +118,6 @@ interface DocumentInterface extends Stringable
      * Returns the document stack section.
      */
     public function getSectionStack(): string;
-
-    /**
-     * Returns the document server section.
-     */
-    public function getSectionServer(): string;
 
     /**
      * Returns a formatted content for a section.
