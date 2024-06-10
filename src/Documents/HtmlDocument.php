@@ -15,6 +15,7 @@ namespace Chevere\ThrowableHandler\Documents;
 
 use Chevere\ThrowableHandler\Formats\HtmlFormat;
 use Chevere\ThrowableHandler\Interfaces\FormatInterface;
+use Chevere\VarDump\Outputs\HtmlOutput;
 
 final class HtmlDocument extends ThrowableHandlerDocument
 {
@@ -29,7 +30,7 @@ final class HtmlDocument extends ThrowableHandlerDocument
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>%css%</style>
+    %style%
     </head>
     <body class="%bodyClass%">%body%</body>
     </html>
@@ -87,9 +88,12 @@ final class HtmlDocument extends ThrowableHandlerDocument
 
     protected function prepare(string $document): string
     {
+        $css = file_get_contents(dirname(__DIR__) . '/src/template.css');
+        $css .= HtmlOutput::CSS;
+        $css = preg_replace('/\s+/', ' ', $css);
         $preDocument = strtr(self::HTML_TEMPLATE, [
             '%bodyClass%' => 'body--flex',
-            '%css%' => file_get_contents(dirname(__DIR__) . '/src/template.css'),
+            '%style%' => "<style>{$css}</style>",
             '%body%' => $this->handler->isDebug()
                 ? self::DEBUG_BODY_HTML
                 : self::NO_DEBUG_BODY_HTML,

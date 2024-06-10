@@ -162,7 +162,7 @@ main>div>* {
 @media (min-width: 768px) {
     main>div {
         box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.09);
-        border-radius: 2px;
+        border-radius: 0.2857em;
     }
 }
 
