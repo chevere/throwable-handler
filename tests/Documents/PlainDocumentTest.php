@@ -49,7 +49,7 @@ final class PlainDocumentTest extends TestCase
             # Message [Code #{$code}]
             {$message}
 
-            # Incident ID:{$id}
+            # Incident {$id}
             PLAIN,
             $document->__toString()
         );

@@ -58,8 +58,8 @@ interface DocumentInterface extends Stringable
         self::SECTION_TITLE,
         self::SECTION_CHAIN,
         self::SECTION_MESSAGE,
-        self::SECTION_ID,
         self::SECTION_TIME,
+        self::SECTION_ID,
         self::SECTION_STACK,
         self::SECTION_SERVER,
     ];

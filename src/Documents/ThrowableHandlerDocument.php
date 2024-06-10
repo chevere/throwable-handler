@@ -103,8 +103,8 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
             static::SECTION_TITLE => $this->getSectionTitle(),
             static::SECTION_CHAIN => $this->getSectionChain(),
             static::SECTION_MESSAGE => $this->getSectionMessage(),
-            static::SECTION_ID => $this->getSectionId(),
             static::SECTION_TIME => $this->getSectionTime(),
+            static::SECTION_ID => $this->getSectionId(),
             static::SECTION_STACK => $this->getSectionStack(),
             static::SECTION_SERVER => $this->getSectionServer(),
         ];
@@ -157,7 +157,7 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
     public function getSectionId(): string
     {
         return $this->format
-            ->getWrapSectionTitle('# Incident ID:' . static::TAG_ID);
+            ->getWrapSectionTitle('# Incident ' . static::TAG_ID);
     }
 
     public function getSectionTime(): string
