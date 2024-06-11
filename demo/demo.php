@@ -14,7 +14,9 @@ declare(strict_types=1);
 use Chevere\ThrowableHandler\Documents\ConsoleDocument;
 use Chevere\ThrowableHandler\Documents\HtmlDocument;
 use Chevere\ThrowableHandler\Documents\PlainDocument;
+use Chevere\Writer\StreamWriter;
 use function Chevere\ThrowableHandler\throwableHandler;
+use function Chevere\Writer\streamTemp;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -31,6 +33,14 @@ try {
     require __DIR__ . '/throws/runtime.php';
 } catch (Throwable $e) {
     $handler = throwableHandler($e);
+    $writer = new StreamWriter(streamTemp());
+    $payload = [
+        'name' => 'Rodolfo',
+        'role' => 'admin',
+    ];
+    $handler = $handler
+        ->withPutExtra('Path', '/admin/settings')
+        ->withPutExtra('Payload', var_export($payload, true));
     $console = new ConsoleDocument($handler);
     $plain = new PlainDocument($handler);
     $html = new HtmlDocument(

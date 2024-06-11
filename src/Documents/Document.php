@@ -21,7 +21,7 @@ use Chevere\ThrowableHandler\ThrowableRead;
 use Chevere\Trace\Trace;
 use DateTimeInterface;
 
-abstract class ThrowableHandlerDocument implements DocumentInterface
+abstract class Document implements DocumentInterface
 {
     protected ThrowableHandlerInterface $handler;
 
@@ -30,7 +30,7 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
     /**
      * @var array<string>
      */
-    protected array $sections = self::SECTIONS;
+    protected array $sections = self::DISPLAY_ORDER;
 
     /**
      * @var array<string, string>
@@ -75,7 +75,7 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
             $template[] = $this->template[$sectionName] ?? null;
         }
 
-        return $this->prepare(strtr(
+        return $this->getPrepare(strtr(
             implode($this->format->getLineBreak(), array_filter($template)),
             $this->tags
         ));
@@ -103,6 +103,7 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
             static::SECTION_TITLE => $this->getSectionTitle(),
             static::SECTION_CHAIN => $this->getSectionChain(),
             static::SECTION_MESSAGE => $this->getSectionMessage(),
+            static::SECTION_EXTRA => $this->getSectionExtra(),
             static::SECTION_TIME => $this->getSectionTime(),
             static::SECTION_ID => $this->getSectionId(),
             static::SECTION_STACK => $this->getSectionStack(),
@@ -123,8 +124,9 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
     public function getSectionMessage(): string
     {
         return $this->format
-            ->getWrapSectionTitle('# Message ' . static::TAG_CODE_WRAP) .
-            "\n" . $this->getContent(static::TAG_MESSAGE);
+            ->getWrapSectionTitle('# Message ' . static::TAG_CODE_WRAP)
+                . "\n"
+                . $this->getContent(static::TAG_MESSAGE);
     }
 
     public function getSectionChain(): string
@@ -169,13 +171,29 @@ abstract class ThrowableHandlerDocument implements DocumentInterface
             );
     }
 
+    public function getSectionExtra(): string
+    {
+        $extra = '';
+        $lastKey = array_key_last($this->handler->extra());
+        foreach ($this->handler->extra() as $key => $value) {
+            $extra .= $this->format->getWrapSectionTitle('# ' . $key)
+            . "\n"
+            . $this->getContent($value);
+            if ($lastKey !== $key) {
+                $extra .= $this->format->getLineBreak();
+            }
+        }
+
+        return $extra;
+    }
+
     public function getSectionStack(): string
     {
         return $this->format->getWrapSectionTitle('# Stack trace') . "\n" .
             $this->getContent(static::TAG_STACK);
     }
 
-    protected function prepare(string $document): string
+    protected function getPrepare(string $document): string
     {
         return $document;
     }

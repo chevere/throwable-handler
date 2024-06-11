@@ -32,7 +32,14 @@ final class PlainDocumentTest extends TestCase
         $fileLine = __FILE__ . ':' . (__LINE__ - 1);
         $read = new ThrowableRead($exception);
         $handler = new ThrowableHandler($read);
-        $handler = $handler->withId($id);
+        $extraTitle1 = 'Extra title 1';
+        $extraValue1 = 'Extra value 1';
+        $extraTitle2 = 'Extra title 2';
+        $extraValue2 = 'Extra value 2';
+        $handler = $handler
+            ->withId($id)
+            ->withPutExtra($extraTitle1, $extraValue1)
+            ->withPutExtra($extraTitle2, $extraValue2);
         $document = new PlainDocument($handler);
         $verbosity = 0;
         $this->assertInstanceOf(PlainFormat::class, $document->getFormat());
@@ -41,13 +48,22 @@ final class PlainDocumentTest extends TestCase
         $document = $document->withVerbosity($verbosity);
         $this->assertSame($verbosity, $document->verbosity());
         $getTemplate = $document->getTemplate();
-        $this->assertSame(DocumentInterface::SECTIONS, array_keys($getTemplate));
+        $this->assertSame(
+            DocumentInterface::DISPLAY_ORDER,
+            array_keys($getTemplate)
+        );
         $this->assertSame(
             <<<PLAIN
             LogicException thrown in {$fileLine}
 
             # Message [Code #{$code}]
             {$message}
+
+            # {$extraTitle1}
+            {$extraValue1}
+
+            # {$extraTitle2}
+            {$extraValue2}
 
             # Incident {$id}
             PLAIN,

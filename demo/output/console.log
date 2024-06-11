@@ -6,10 +6,19 @@
 [32m# Message [0m
 Don't **panic** this is just a `drill`.
 
-[32m# Incident ID:66664e1bc9858[0m
+[32m# Path[0m
+/admin/settings
+
+[32m# Payload[0m
+array (
+  'name' => 'Rodolfo',
+  'role' => 'admin',
+)
 
 [32m# Time[0m
-2024-06-10T00:51:39+00:00 [1717980699]
+2024-06-11T14:15:14+00:00 [1718115314]
+
+[32m# Incident 66685bf28861a[0m
 
 [32m# Stack trace[0m
 [34m------------------------------------------------------------[0m
@@ -19,9 +28,6 @@ Don't **panic** this is just a `drill`.
 [32m#1[0m [38;5;111m/var/www/html/throws/runtime.php:14[0m
 [38;5;221m[0m[38;5;242m[0m[38;5;39mrequire()[0m
 [34m------------------------------------------------------------[0m
-[32m#2[0m [38;5;111m/var/www/html/demo.php:31[0m
+[32m#2[0m [38;5;111m/var/www/html/demo.php:33[0m
 [38;5;221m[0m[38;5;242m[0m[38;5;39mrequire(string(length=68))[0m
 [34m------------------------------------------------------------[0m
-
-[32m# Server[0m
-Darwin rodolfo-mba.local 23.5.0 Darwin Kernel Version 23.5.0: Wed May  1 20:19:05 PDT 2024; root:xnu-10063.121.3~5/RELEASE_ARM64_T8112 arm64

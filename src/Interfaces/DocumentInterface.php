@@ -54,10 +54,11 @@ interface DocumentInterface extends Stringable
 
     public const TAG_CHAIN = '%chain%';
 
-    public const SECTIONS = [
+    public const DISPLAY_ORDER = [
         self::SECTION_TITLE,
         self::SECTION_CHAIN,
         self::SECTION_MESSAGE,
+        self::SECTION_EXTRA,
         self::SECTION_TIME,
         self::SECTION_ID,
         self::SECTION_STACK,
@@ -113,6 +114,11 @@ interface DocumentInterface extends Stringable
      * Returns the document time section.
      */
     public function getSectionTime(): string;
+
+    /**
+     * Returns the document extra section.
+     */
+    public function getSectionExtra(): string;
 
     /**
      * Returns the document stack section.

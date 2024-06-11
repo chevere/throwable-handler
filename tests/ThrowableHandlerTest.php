@@ -29,15 +29,16 @@ final class ThrowableHandlerTest extends TestCase
         $this->assertInstanceOf(ThrowableRead::class, $handler->throwableRead());
         $this->assertIsString($handler->id());
         $this->assertTrue($handler->isDebug());
+        $this->assertSame([], $handler->extra());
     }
 
     public function testWithDebug(): void
     {
         $handler = $this->getExceptionHandler();
-        $handlerWithDebug = $handler->withIsDebug(true);
-        $this->assertNotSame($handler, $handlerWithDebug);
+        $with = $handler->withIsDebug(true);
+        $this->assertNotSame($handler, $with);
         $this->assertTrue(
-            $handlerWithDebug->isDebug()
+            $with->isDebug()
         );
     }
 
@@ -45,11 +46,28 @@ final class ThrowableHandlerTest extends TestCase
     {
         $handler = $this->getExceptionHandler();
         $id = 'the-id';
-        $handlerWithId = $handler->withId($id);
-        $this->assertNotSame($handler, $handlerWithId);
+        $with = $handler->withId($id);
+        $this->assertNotSame($handler, $with);
         $this->assertSame(
             $id,
-            $handlerWithId->id()
+            $with->id()
+        );
+    }
+
+    public function testWithPutExtra(): void
+    {
+        $handler = $this->getExceptionHandler();
+        $title = 'My title';
+        $value = 'My value';
+        $with = $handler
+            ->withPutExtra($title, $value)
+            ->withPutExtra($title, $value);
+        $this->assertNotSame($handler, $with);
+        $this->assertSame(
+            [
+                $title => $value,
+            ],
+            $with->extra()
         );
     }
 

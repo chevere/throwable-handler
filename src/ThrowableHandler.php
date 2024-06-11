@@ -37,6 +37,11 @@ final class ThrowableHandler implements ThrowableHandlerInterface
 
     private bool $isDebug = true;
 
+    /**
+     * @var array<string, string>
+     */
+    private array $extra = [];
+
     public function __construct(
         private ThrowableReadInterface $throwableRead
     ) {
@@ -81,5 +86,18 @@ final class ThrowableHandler implements ThrowableHandlerInterface
     public function id(): string
     {
         return $this->id;
+    }
+
+    public function withPutExtra(string $title, string $value): self
+    {
+        $new = clone $this;
+        $new->extra[$title] = $value;
+
+        return $new;
+    }
+
+    public function extra(): array
+    {
+        return $this->extra;
     }
 }

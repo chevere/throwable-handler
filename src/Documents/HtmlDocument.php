@@ -17,7 +17,7 @@ use Chevere\ThrowableHandler\Formats\HtmlFormat;
 use Chevere\ThrowableHandler\Interfaces\FormatInterface;
 use Chevere\VarDump\Outputs\HtmlOutput;
 
-final class HtmlDocument extends ThrowableHandlerDocument
+final class HtmlDocument extends Document
 {
     public const NO_DEBUG_TITLE_PLAIN = 'Something went wrong';
 
@@ -86,7 +86,7 @@ final class HtmlDocument extends ThrowableHandlerDocument
         );
     }
 
-    protected function prepare(string $document): string
+    protected function getPrepare(string $document): string
     {
         $css = file_get_contents(dirname(__DIR__) . '/src/template.css');
         $css .= HtmlOutput::CSS;

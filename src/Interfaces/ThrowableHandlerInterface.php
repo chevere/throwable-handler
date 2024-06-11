@@ -35,14 +35,12 @@ interface ThrowableHandlerInterface
     public function id(): string;
 
     /**
-     * Return an instance with the specified extra data.
+     * Return an instance with the specified put extra data.
      *
      * This method MUST retain the state of the current instance, and return
-     * an instance that contains the specified extra data.
-     *
-     * @param array<string, string> $data
+     * an instance that contains the specified put extra data.
      */
-    public function withExtra(array $data): self;
+    public function withPutExtra(string $title, string $value): self;
 
     /**
      * Extra throwable data to display.
