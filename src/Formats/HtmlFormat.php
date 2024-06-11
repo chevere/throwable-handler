@@ -26,14 +26,17 @@ final class HtmlFormat extends Format
 
     public function getItemTemplate(): string
     {
-        return '<div class="pre pre--stack-entry ' .
-            TraceInterface::TAG_ENTRY_CSS_EVEN_CLASS . '">#' .
-            TraceInterface::TAG_ENTRY_POS . ' ' .
-            TraceInterface::TAG_ENTRY_FILE_LINE . "\n" .
-            TraceInterface::TAG_ENTRY_CLASS .
-            TraceInterface::TAG_ENTRY_TYPE .
-            TraceInterface::TAG_ENTRY_FUNCTION .
-            '</div>';
+        return '<div class="pre pre--stack-entry '
+            . TraceInterface::TAG_ENTRY_CSS_EVEN_CLASS
+            . '">'
+            . TraceInterface::TAG_ENTRY_POS
+            . ' '
+            . TraceInterface::TAG_ENTRY_FILE_LINE
+            . "\n"
+            . TraceInterface::TAG_ENTRY_CLASS
+            . TraceInterface::TAG_ENTRY_TYPE
+            . TraceInterface::TAG_ENTRY_FUNCTION
+            . '</div>';
     }
 
     public function getHr(): string

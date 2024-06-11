@@ -35,11 +35,13 @@ abstract class Format implements FormatInterface
 
     public function getItemTemplate(): string
     {
-        return '#' . TraceInterface::TAG_ENTRY_POS .
-            ' ' . TraceInterface::TAG_ENTRY_FILE_LINE . "\n" .
-            TraceInterface::TAG_ENTRY_CLASS .
-            TraceInterface::TAG_ENTRY_TYPE .
-            TraceInterface::TAG_ENTRY_FUNCTION;
+        return TraceInterface::TAG_ENTRY_POS
+            . ' '
+            . TraceInterface::TAG_ENTRY_FILE_LINE
+            . "\n"
+            . TraceInterface::TAG_ENTRY_CLASS
+            . TraceInterface::TAG_ENTRY_TYPE
+            . TraceInterface::TAG_ENTRY_FUNCTION;
     }
 
     public function getHr(): string

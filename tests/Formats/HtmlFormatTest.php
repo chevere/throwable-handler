@@ -45,11 +45,15 @@ final class HtmlFormatTest extends TestCase
         $array = [
             'getItemTemplate' => [
                 [],
-                '<div class="pre pre--stack-entry %cssEvenClass%">#%pos% %fileLine%' . "\n" . '%class%%type%%function%</div>',
+                '<div class="pre pre--stack-entry %cssEvenClass%">%pos% %fileLine%'
+                . "\n"
+                . '%class%%type%%function%</div>',
             ],
             'getHr' => [
                 [],
-                '<div class="hr"><span>' . str_repeat('-', 60) . '</span></div>',
+                '<div class="hr"><span>'
+                . str_repeat('-', 60)
+                . '</span></div>',
             ],
             'getLineBreak' => [
                 [],

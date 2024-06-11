@@ -28,7 +28,7 @@ final class ConsoleFormat extends Format
     public function getItemTemplate(): string
     {
         return $this->getWrapSectionTitle(
-            '#' . TraceInterface::TAG_ENTRY_POS
+            TraceInterface::TAG_ENTRY_POS
         )
             . ' '
             . TraceInterface::TAG_ENTRY_FILE_LINE

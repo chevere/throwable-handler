@@ -16,18 +16,18 @@ array (
 )
 
 # Time
-2024-06-11T14:15:14+00:00 [1718115314]
+2024-06-11T14:31:10+00:00 [1718116270]
 
-# Incident 66685bf28861a
+# Incident 66685fae20b60
 
 # Stack trace
 ------------------------------------------------------------
-#0 /var/www/html/throws/throws.php:17
+0 /var/www/html/throws/throws.php:17
 {main}()
 ------------------------------------------------------------
-#1 /var/www/html/throws/runtime.php:14
+1 /var/www/html/throws/runtime.php:14
 require()
 ------------------------------------------------------------
-#2 /var/www/html/demo.php:33
+2 /var/www/html/demo.php:33
 require(string(length=68))
 ------------------------------------------------------------

@@ -52,13 +52,14 @@ final class TraceFormatTest extends TestCase
             new PlainFormat()
         );
         $this->assertSame([
-            0 => "#0 \n(bool(false), null)",
+            0 => "0 \n(bool(false), null)",
         ], $document->toArray());
         $this->assertSame(
-            $this->hrLine .
-            "\n#0 " .
-            "\n(bool(false), null)" .
-            "\n" . $this->hrLine,
+            $this->hrLine
+            . "\n0 "
+            . "\n(bool(false), null)"
+            . "\n"
+            . $this->hrLine,
             $document->__toString()
         );
     }
@@ -94,16 +95,18 @@ final class TraceFormatTest extends TestCase
         );
         $expectEntries = [];
         foreach (array_keys($trace) as $pos) {
-            $expect = "#{$pos} {$file}:{$line}\n{$fqn}{$type}{$method}()";
+            $expect = "{$pos} {$file}:{$line}\n{$fqn}{$type}{$method}()";
             $expectEntries[] = $expect;
             $this->assertSame(
                 $expect,
                 $document->toArray()[$pos]
             );
         }
-        $expectString = $this->hrLine . "\n" .
-            implode("\n" . $this->hrLine . "\n", $expectEntries) . "\n" .
-            $this->hrLine;
+        $expectString = $this->hrLine
+            . "\n"
+            . implode("\n" . $this->hrLine . "\n", $expectEntries)
+            . "\n"
+            . $this->hrLine;
         $this->assertSame($expectString, $document->__toString());
     }
 }
