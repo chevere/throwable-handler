@@ -1,7 +1,7 @@
-LogicException thrown in /var/www/html/throws/throws.php:17
+LogicException thrown in /var/www/html/throws/throws.php:16
 
 # └ RuntimeException thrown 
-Oops! in /var/www/html/throws/throws.php:23
+Oops! in /var/www/html/throws/throws.php:22
 
 # Message 
 Don't **panic** this is just a `drill`.
@@ -16,13 +16,13 @@ array (
 )
 
 # Time
-2024-06-11T14:31:10+00:00 [1718116270]
+2024-06-21T15:40:15+00:00 [1718984415]
 
-# Incident 66685fae20b60
+# Incident 66759edf88395
 
-# Stack trace
+# Backtrace
 ------------------------------------------------------------
-0 /var/www/html/throws/throws.php:17
+0 /var/www/html/throws/throws.php:16
 {main}()
 ------------------------------------------------------------
 1 /var/www/html/throws/runtime.php:14

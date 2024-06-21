@@ -61,9 +61,11 @@ final class HtmlDocument extends Document
         return $template;
     }
 
-    public function getContent(string $content): string
+    public function getContent(string $content, string $handle = ''): string
     {
-        return "<div>{$content}</div>";
+        $classAttr = 'class="' . $handle . '"';
+
+        return "<div {$classAttr}>{$content}</div>";
     }
 
     public function getSectionTitle(): string

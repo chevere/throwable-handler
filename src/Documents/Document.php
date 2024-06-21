@@ -110,7 +110,7 @@ abstract class Document implements DocumentInterface
         ];
     }
 
-    public function getContent(string $content): string
+    public function getContent(string $content, string $handle = ''): string
     {
         return $content;
     }
@@ -126,7 +126,10 @@ abstract class Document implements DocumentInterface
         return $this->format
             ->getWrapSectionTitle('# Message ' . static::TAG_CODE_WRAP)
                 . "\n"
-                . $this->getContent(static::TAG_MESSAGE);
+                . $this->getContent(
+                    static::TAG_MESSAGE,
+                    'message'
+                );
     }
 
     public function getSectionChain(): string
@@ -144,8 +147,13 @@ abstract class Document implements DocumentInterface
                 "\n"
             );
             $return .= $this->getContent(
-                $throwable->getMessage() .
-                ' in ' . $this->format->getWrapLink($throwableRead->file() . ':' . $throwableRead->line())
+                $throwable->getMessage()
+                . ' in '
+                . $this->format->getWrapLink(
+                    $throwableRead->file()
+                    . ':'
+                    . $throwableRead->line()
+                )
             );
             if ($throwable->getPrevious() !== null) {
                 $return .= $this->format->getLineBreak();
@@ -166,8 +174,9 @@ abstract class Document implements DocumentInterface
         return $this->format->getWrapSectionTitle('# Time')
             . "\n"
             . $this->getContent(
-                static::TAG_DATE_TIME_UTC_ATOM .
-                ' [' . static::TAG_TIMESTAMP . ']'
+                static::TAG_DATE_TIME_UTC_ATOM
+                . ' [' . static::TAG_TIMESTAMP . ']',
+                'time'
             );
     }
 
@@ -178,7 +187,7 @@ abstract class Document implements DocumentInterface
         foreach ($this->handler->extra() as $key => $value) {
             $extra .= $this->format->getWrapSectionTitle('# ' . $key)
             . "\n"
-            . $this->getContent($value);
+            . $this->getContent($value, $key);
             if ($lastKey !== $key) {
                 $extra .= $this->format->getLineBreak();
             }
@@ -189,8 +198,9 @@ abstract class Document implements DocumentInterface
 
     public function getSectionStack(): string
     {
-        return $this->format->getWrapSectionTitle('# Stack trace') . "\n" .
-            $this->getContent(static::TAG_STACK);
+        return $this->format->getWrapSectionTitle('# Backtrace')
+            . "\n"
+            . $this->getContent(static::TAG_STACK, 'backtrace');
     }
 
     protected function getPrepare(string $document): string

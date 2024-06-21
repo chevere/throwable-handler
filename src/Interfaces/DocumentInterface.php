@@ -128,7 +128,7 @@ interface DocumentInterface extends Stringable
     /**
      * Returns a formatted content for a section.
      */
-    public function getContent(string $content): string;
+    public function getContent(string $content, string $handle = ''): string;
 
     /**
      * Returns the template used for translating placeholders tags.

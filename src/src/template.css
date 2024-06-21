@@ -177,3 +177,14 @@ main>div> :last-child {
 .note {
     margin: 1em 0;
 }
+
+.backtrace {
+    min-height: 3.375em;
+    max-height: max-content;
+    height: 3.375em;
+    resize: vertical;
+    overflow: auto;
+}
+.backtrace .hr:last-child {
+    display: none;
+}

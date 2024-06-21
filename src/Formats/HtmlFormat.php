@@ -42,7 +42,7 @@ final class HtmlFormat extends Format
     public function getHr(): string
     {
         return '<div class="hr"><span>'
-            . str_repeat('-', 60)
+            . '------------------------------------------------------------'
             . '</span></div>';
     }
 
