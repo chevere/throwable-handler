@@ -54,7 +54,7 @@ final class PlainDocumentTest extends TestCase
         );
         $this->assertSame(
             <<<PLAIN
-            LogicException thrown in {$fileLine}
+            LogicException in {$fileLine}
 
             # Message [Code #{$code}]
             {$message}

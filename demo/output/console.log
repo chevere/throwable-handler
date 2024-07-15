@@ -1,6 +1,6 @@
-[31m[1mLogicException thrown[0m[0m in [34m[4m/var/www/html/throws/throws.php:16[0m[0m
+[31m[1mLogicException[0m[0m in [34m[4m/var/www/html/throws/throws.php:16[0m[0m
 
-[32m# └ RuntimeException thrown 
+[32m# ↳ RuntimeException
 [0mOops! in [34m[4m/var/www/html/throws/throws.php:22[0m[0m
 
 [32m# Message [0m
@@ -16,9 +16,9 @@ array (
 )
 
 [32m# Time[0m
-2024-06-21T15:40:15+00:00 [1718984415]
+2024-07-15T20:37:31+00:00 [1721075851]
 
-[32m# Incident 66759edf88395[0m
+[32m# Incident 6695888b5fabd[0m
 
 [32m# Backtrace[0m
 [34m------------------------------------------------------------[0m

@@ -1,6 +1,6 @@
-LogicException thrown in /var/www/html/throws/throws.php:16
+LogicException in /var/www/html/throws/throws.php:16
 
-# └ RuntimeException thrown 
+# ↳ RuntimeException
 Oops! in /var/www/html/throws/throws.php:22
 
 # Message 
@@ -16,9 +16,9 @@ array (
 )
 
 # Time
-2024-06-21T15:40:15+00:00 [1718984415]
+2024-07-15T20:37:31+00:00 [1721075851]
 
-# Incident 66759edf88395
+# Incident 6695888b5fabd
 
 # Backtrace
 ------------------------------------------------------------

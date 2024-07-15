@@ -60,7 +60,7 @@ abstract class Document implements DocumentInterface
         $dateTimeUtc = $this->handler->dateTimeUtc();
         // @phpstan-ignore-next-line
         $this->tags = [
-            static::TAG_TITLE => $throwableRead->className() . ' thrown',
+            static::TAG_TITLE => $throwableRead->className(),
             static::TAG_MESSAGE => $throwableRead->message(),
             static::TAG_CODE_WRAP => $this->getThrowableReadCode($throwableRead),
             static::TAG_FILE_LINE => $throwableRead->file() . ':' . $throwableRead->line(),
@@ -142,9 +142,10 @@ abstract class Document implements DocumentInterface
         do {
             $throwableRead = new ThrowableRead($throwable);
             $return .= $this->format->getWrapSectionTitle(
-                '# └ ' . $throwableRead->className() . ' thrown ' .
-                $this->getThrowableReadCode($throwableRead) .
-                "\n"
+                '# ↳ '
+                . $throwableRead->className()
+                . $this->getThrowableReadCode($throwableRead)
+                . "\n"
             );
             $return .= $this->getContent(
                 $throwable->getMessage()
