@@ -57,6 +57,7 @@ main {
         background-attachment: fixed;
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3498db", endColorstr="#8e44ad", GradientType=0);
     }
+
     main {
         padding: 20px;
     }
@@ -180,11 +181,13 @@ main>div> :last-child {
 
 .backtrace {
     min-height: 3.375em;
+    max-height: -webkit-max-content;
+    max-height: -moz-max-content;
     max-height: max-content;
-    height: 3.375em;
     resize: vertical;
     overflow: auto;
 }
+
 .backtrace .hr:last-child {
     display: none;
 }
