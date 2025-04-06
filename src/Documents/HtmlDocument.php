@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of Chevereto.
+ * This file is part of Chevere.
  *
- * (c) Rodolfo Berrios <rodolfo@chevereto.com>
+ * (c) Rodolfo Berrios <rodolfo@chevere.org>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -64,10 +64,13 @@ final class HtmlDocument extends Document
 
     public function getContent(string $content, string $handle = ''): string
     {
-        $handle = strtolower(preg_replace('/[^a-zA-Z0-9_-]/', '-', $handle));
-        $classAttr = 'class="' . $handle . '"';
+        $handle = preg_replace('/\W+/', '-', $handle) ?? '';
+        $handle = trim($handle, '-');
+        $handle = strtolower($handle);
 
-        return "<div {$classAttr}>{$content}</div>";
+        return <<<HTML
+        <div class="{$handle}">{$content}</div>
+        HTML;
     }
 
     public function getSectionTitle(): string
