@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of Chevere.
+ * This file is part of Chevereto.
  *
- * (c) Rodolfo Berrios <rodolfo@chevere.org>
+ * (c) Rodolfo Berrios <rodolfo@chevereto.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -37,7 +37,7 @@ final class HtmlDocument extends Document
     HTML;
 
     public const NO_DEBUG_BODY_HTML = <<<HTML
-    <main class="user-select-none"><div>%content%</div></main>
+    <main><div>%content%</div></main>
     HTML;
 
     public const DEBUG_BODY_HTML = <<<HTML
@@ -55,6 +55,7 @@ final class HtmlDocument extends Document
         if (! $this->handler->isDebug()) {
             $template = [
                 self::SECTION_TITLE => $template[self::SECTION_TITLE],
+                static::SECTION_EXTRA => $this->getSectionExtra(),
             ];
         }
 
@@ -63,6 +64,7 @@ final class HtmlDocument extends Document
 
     public function getContent(string $content, string $handle = ''): string
     {
+        $handle = strtolower(preg_replace('/[^a-zA-Z0-9_-]/', '-', $handle));
         $classAttr = 'class="' . $handle . '"';
 
         return "<div {$classAttr}>{$content}</div>";
@@ -73,11 +75,11 @@ final class HtmlDocument extends Document
         if (! $this->handler->isDebug()) {
             return $this->format->getWrapTitle(self::NO_DEBUG_TITLE_PLAIN)
                 . self::NO_DEBUG_CONTENT_HTML
-                . '<p><span class="user-select-all">'
+                . '<div><span class="user-select-all">'
                 . self::TAG_DATE_TIME_UTC_ATOM
                 . '</span> • <span class="user-select-all">'
                 . self::TAG_ID
-                . '</span></p>';
+                . '</span></div>';
         }
 
         return $this->format->getWrapTitle(

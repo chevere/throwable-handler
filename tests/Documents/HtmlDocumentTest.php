@@ -67,7 +67,7 @@ final class HtmlDocumentTest extends TestCase
         $this->assertStringContainsString('<meta charset="utf-8">', $string);
         $this->assertStringContainsString('Something went wrong', $string);
         $this->assertStringContainsString('Please try again later.', $string);
-        $this->assertStringContainsString('<main class="user-select-none"><div>', $string);
+        $this->assertStringContainsString('<main><div>', $string);
         $this->assertStringContainsString('</span> • <span class="user-select-all">', $string);
     }
 }
