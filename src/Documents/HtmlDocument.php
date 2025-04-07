@@ -22,7 +22,7 @@ final class HtmlDocument extends Document
     public const NO_DEBUG_TITLE_PLAIN = 'Something went wrong';
 
     public const NO_DEBUG_CONTENT_HTML = <<<HTML
-    <p>Please try again later. If the problem persist don't hesitate to contact the system administrator.</p>
+    <p>Please try again later. If the problem persists don't hesitate to contact the system administrator.</p>
     HTML;
 
     public const HTML_TEMPLATE = <<<HTML
