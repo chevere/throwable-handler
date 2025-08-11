@@ -1,9 +1,9 @@
 html, body {
     min-height: 100%;
+    height: auto;
 }
 
 html {
-    height: 100%;
     color: #000;
     font: 16px Helvetica, Arial, sans-serif;
     line-height: 1.2;
@@ -19,6 +19,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .user-select-none {
