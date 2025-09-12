@@ -14,8 +14,8 @@
     "require": {
         "php": "^8.1",
         "chevere/message": "^1.0.0",
-        "chevere/trace": "^2.0.1",
-        "chevere/var-dump": "^2.0.3"
+        "chevere/trace": "^2.0.2",
+        "chevere/var-dump": "^2.0.6"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",
