@@ -2,8 +2,8 @@
 <svg data-stacking-context="true" aria-owns="html1" width="1000" height="800" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient gradientUnits="userSpaceOnUse" x1="500" y1="0" x2="500" y2="800" id="gradient-0">
-      <stop offset="0" style="stop-color: rgba(52, 152, 219, 1)"/>
-      <stop offset="1" style="stop-color: rgb(142, 68, 173);"/>
+      <stop offset="0" style="stop-color: rgb(42, 151, 255)"/>
+      <stop offset="1" style="stop-color: rgb(0, 233, 126);"/>
     </linearGradient>
   </defs>
   <g data-stacking-layer="rootBackgroundAndBorders"/>
