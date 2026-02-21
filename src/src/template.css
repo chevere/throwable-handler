@@ -55,7 +55,7 @@ main {
 @media (min-width: 768px) {
     body {
         background: #2a97ff;
-        background: linear-gradient(to bottom, #2a97ff 0%, #00e97e 100%);
+        background: linear-gradient(to bottom, #00e97e 0%, #2a97ff 100%);
         background-attachment: fixed;
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2a97ff", endColorstr="#00e97e", GradientType=0);
     }
