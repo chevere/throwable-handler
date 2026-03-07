@@ -151,6 +151,10 @@ main {
     background: hsl(210, 29%, 29%);
 }
 
+.block *:last-child {
+    margin-bottom: 0;
+}
+
 main>div {
     padding: 20px;
     background: #fff;

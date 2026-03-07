@@ -38,9 +38,9 @@ try {
         'name' => 'Rodolfo',
         'role' => 'admin',
     ];
-    $handler = $handler
-        ->withPutExtra('Path', '/admin/settings')
-        ->withPutExtra('Payload', var_export($payload, true));
+    // $handler = $handler
+    //     ->withPutExtra('Path', '/admin/settings')
+    //     ->withPutExtra('Payload', var_export($payload, true));
     $console = new ConsoleDocument($handler);
     $plain = new PlainDocument($handler);
     $html = new HtmlDocument(
@@ -49,6 +49,8 @@ try {
     $htmlSilent = new HtmlDocument(
         $handler
             ->withIsDebug(false)
+            ->withPutExtra('Seccion 1', '<p>Algo se fue a la chucha</p>')
+            ->withPutExtra('Seccion 2', '<p>Algo se fue a la chucha</p>')
             ->withTitle('Algo se fue a la chucha')
             ->withMessage(
                 <<<PLAIN

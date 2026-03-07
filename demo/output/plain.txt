@@ -6,19 +6,10 @@ Oops! in /var/www/html/throws/throws.php:22
 # Message 
 Don't **panic** this is just a `drill`.
 
-# Path
-/admin/settings
-
-# Payload
-array (
-  'name' => 'Rodolfo',
-  'role' => 'admin',
-)
-
 # Time
-2026-03-07T17:37:15+00:00 [1772905035]
+2026-03-07T18:27:57+00:00 [1772908077]
 
-# Incident 69ac624b3b04f
+# Incident 69ac6e2d2ca49
 
 # Backtrace
 ------------------------------------------------------------

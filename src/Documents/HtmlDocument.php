@@ -69,7 +69,7 @@ final class HtmlDocument extends Document
         $handle = strtolower($handle);
 
         return <<<HTML
-        <div class="{$handle}">{$content}</div>
+        <div class="block {$handle}">{$content}</div>
         HTML;
     }
 

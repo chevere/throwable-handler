@@ -59,12 +59,12 @@ final class HtmlFormat extends Format
     public function getWrapSectionTitle(string $value): string
     {
         return '<div class="title">'
-            . str_replace('# ', $this->getWrapHidden('#&nbsp;'), $value)
+            . str_replace('# ', $this->getWrapHidden('##&nbsp;'), $value)
             . '</div>';
     }
 
     public function getWrapTitle(string $value): string
     {
-        return '<div class="title title--scream">' . $value . '</div>';
+        return '<div class="title title--scream">' . $this->getWrapHidden('#&nbsp;') . $value . '</div>';
     }
 }

@@ -6,19 +6,10 @@
 [32m# Message [0m
 Don't **panic** this is just a `drill`.
 
-[32m# Path[0m
-/admin/settings
-
-[32m# Payload[0m
-array (
-  'name' => 'Rodolfo',
-  'role' => 'admin',
-)
-
 [32m# Time[0m
-2026-03-07T17:37:15+00:00 [1772905035]
+2026-03-07T18:27:57+00:00 [1772908077]
 
-[32m# Incident 69ac624b3b04f[0m
+[32m# Incident 69ac6e2d2ca49[0m
 
 [32m# Backtrace[0m
 [34m------------------------------------------------------------[0m
