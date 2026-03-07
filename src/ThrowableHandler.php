@@ -35,6 +35,10 @@ final class ThrowableHandler implements ThrowableHandlerInterface
 
     private string $id;
 
+    private string $title = '';
+
+    private string $message = '';
+
     private bool $isDebug = true;
 
     /**
@@ -52,6 +56,22 @@ final class ThrowableHandler implements ThrowableHandlerInterface
         $this->id = uniqid('');
     }
 
+    public function withTitle(string $title): ThrowableHandlerInterface
+    {
+        $new = clone $this;
+        $new->title = $title;
+
+        return $new;
+    }
+
+    public function withMessage(string $message): ThrowableHandlerInterface
+    {
+        $new = clone $this;
+        $new->message = $message;
+
+        return $new;
+    }
+
     public function withIsDebug(bool $isDebug): ThrowableHandlerInterface
     {
         $new = clone $this;
@@ -66,6 +86,16 @@ final class ThrowableHandler implements ThrowableHandlerInterface
         $new->id = $id;
 
         return $new;
+    }
+
+    public function title(): string
+    {
+        return $this->title;
+    }
+
+    public function message(): string
+    {
+        return $this->message;
     }
 
     public function isDebug(): bool

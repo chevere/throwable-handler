@@ -21,9 +21,9 @@ final class HtmlDocument extends Document
 {
     public const NO_DEBUG_TITLE_PLAIN = 'Something went wrong';
 
-    public const NO_DEBUG_CONTENT_HTML = <<<HTML
-    <p>Please try again later. If the problem persists don't hesitate to contact the system administrator.</p>
-    HTML;
+    public const NO_DEBUG_MESSAGE_PLAIN = <<<PLAIN
+    Please try again later. If the problem persists don't hesitate to contact the system administrator.
+    PLAIN;
 
     public const HTML_TEMPLATE = <<<HTML
     <html>
@@ -76,11 +76,20 @@ final class HtmlDocument extends Document
     public function getSectionTitle(): string
     {
         if (! $this->handler->isDebug()) {
-            return $this->format->getWrapTitle(self::NO_DEBUG_TITLE_PLAIN)
-                . self::NO_DEBUG_CONTENT_HTML
+            $title = match (true) {
+                $this->handler->title() === '' => self::NO_DEBUG_TITLE_PLAIN,
+                default => $this->handler->title(),
+            };
+            $message = match (true) {
+                $this->handler->message() === '' => self::NO_DEBUG_MESSAGE_PLAIN,
+                default => $this->handler->message(),
+            };
+
+            return $this->format->getWrapTitle($title)
+                . "<p>{$message}</p>"
                 . '<div><span class="user-select-all">'
                 . self::TAG_DATE_TIME_UTC_ATOM
-                . '</span> • <span class="user-select-all">'
+                . '</span> • <span class="user-select-all">ID '
                 . self::TAG_ID
                 . '</span></div>';
         }

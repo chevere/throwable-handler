@@ -264,7 +264,6 @@ $consoleDoc = new ConsoleDocument($handler);
 $plainDoc = new PlainDocument($handler);
 $htmlDoc = new HtmlDocument($handler);
 ```
-
 ### Debug
 
 The method `withIsDebug` in `ThrowableHandlerInterface` can be used to toggle debug information on generated documents.
@@ -278,6 +277,27 @@ $docLoud = new HtmlDocument($handler);
 $docSilent = new HtmlDocument(
     $handler->withIsDebug(false)
 );
+```
+
+## Custom title and message
+
+When handling silent HTML documents, the default title is `Something went wrong` and the default message is `Please try again later. If the problem persists don't hesitate to contact the system administrator.`. These defaults are used when debug information is disabled and no custom title or message is set.
+
+The methods `withTitle` and `withMessage` in `ThrowableHandlerInterface` can be used to set custom title and message on generated documents.
+
+```php
+use Chevere\ThrowableHandler\Documents\HtmlDocument;
+use function Chevere\ThrowableHandler\throwableHandler;
+
+$handler = throwableHandler($e)
+    ->withIsDebug(false)
+    ->withTitle('Algo se fue a la chucha')
+    ->withMessage(
+        <<<PLAIN
+        ¡La vendimos! Ya estamos trabajando para resolver este problema.
+        PLAIN
+    );
+$docSilent = new HtmlDocument($handler);
 ```
 
 For the code above, `$docLoud` contains debug information (throwable info, file, line, trace and server) while `$docSilent` provides a generic message but referencing to the throwable handled id.

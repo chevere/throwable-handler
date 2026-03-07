@@ -47,7 +47,14 @@ try {
         $handler->withIsDebug(true)
     );
     $htmlSilent = new HtmlDocument(
-        $handler->withIsDebug(false)
+        $handler
+            ->withIsDebug(false)
+            ->withTitle('Algo se fue a la chucha')
+            ->withMessage(
+                <<<PLAIN
+                ¡La vendimos! Ya estamos trabajando para resolver este problema.
+                PLAIN
+            )
     );
     foreach ([
         'console.log' => strval($console),

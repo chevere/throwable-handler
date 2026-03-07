@@ -22,9 +22,17 @@ interface ThrowableHandlerInterface
 {
     public function __construct(ThrowableReadInterface $throwableRead);
 
+    public function withTitle(string $title): self;
+
+    public function withMessage(string $message): self;
+
     public function withIsDebug(bool $isDebug): self;
 
     public function withId(string $id): self;
+
+    public function title(): string;
+
+    public function message(): string;
 
     public function isDebug(): bool;
 
