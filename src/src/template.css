@@ -42,10 +42,12 @@ html {
 main {
     background: none;
     display: block;
-    padding: 0;
+    padding: 0 20px;
     margin: 0;
     border: 0;
-    width: 470px;
+    width: 100%;
+    max-width: 470px;
+    box-sizing: border-box;
 }
 
 .body--block main {
@@ -94,6 +96,7 @@ main {
 
 .title--scream {
     font-size: 2.25em;
+    line-height: 1em;
     margin-bottom: 0;
 }
 
