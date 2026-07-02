@@ -37,8 +37,16 @@ final class FunctionsTest extends TestCase
 
     public function testErrorAsException(): void
     {
+        error_reporting(E_WARNING);
         $this->expectException(ErrorException::class);
-        errorAsException(0, 'error', __FILE__, __LINE__);
+        errorAsException(E_WARNING, 'error', __FILE__, __LINE__);
+    }
+
+    public function testSilencedErrorAsException(): void
+    {
+        error_reporting(E_WARNING);
+        $this->expectNotToPerformAssertions();
+        @errorAsException(E_WARNING, 'error', __FILE__, __LINE__);
     }
 
     public function testShutdownErrorAsException(): void

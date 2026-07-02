@@ -128,6 +128,10 @@ function writeThrowable(
  */
 function errorAsException(int $severity, string $message, string $file, int $line): void
 {
+    if (! (error_reporting() & $severity)) {
+        return;
+    }
+
     throw new ErrorException($message, 0, $severity, $file, $line);
 }
 
