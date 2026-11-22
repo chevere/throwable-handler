@@ -11,13 +11,11 @@
 
 declare(strict_types=1);
 
-use function Chevere\Message\message;
-
 throw new LogicException(
-    (string) message(
-        "Don't **%action%** this is just a `%context%`.",
-        action: 'panic',
-        context: 'drill'
+    sprintf(
+        "Don't **%s** this is just a `%s`.",
+        'panic',
+        'drill'
     ),
     previous: new RuntimeException('Oops!')
 );

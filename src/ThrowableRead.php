@@ -17,7 +17,6 @@ use Chevere\ThrowableHandler\Interfaces\ThrowableReadInterface;
 use ErrorException;
 use RangeException;
 use Throwable;
-use function Chevere\Message\message;
 
 final class ThrowableRead implements ThrowableReadInterface
 {
@@ -133,10 +132,10 @@ final class ThrowableRead implements ThrowableReadInterface
         $accepted = array_keys(ThrowableReadInterface::ERROR_TYPES);
         if (! in_array($this->severity, $accepted, true)) {
             throw new RangeException(
-                (string) message(
-                    'Unknown severity value of `%severity%`, accepted values are: `%accepted%`',
-                    severity: strval($this->severity),
-                    accepted: implode(', ', $accepted)
+                sprintf(
+                    'Unknown severity value of `%s`, accepted values are: `%s`',
+                    strval($this->severity),
+                    implode(', ', $accepted)
                 )
             );
         }
